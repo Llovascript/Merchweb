@@ -1,0 +1,183 @@
+.card-container {
+    display: flex; /* Coloca las cartas en línea horizontal */
+    justify-content: space-around; /* Distribuye el espacio entre las cartas */
+    flex-wrap: wrap; /* Permite que las cartas se envuelvan si no caben en una línea */
+    margin-top: 50px; /* Espacio superior entre el contenedor principal y las nuevas cartas */
+}
+
+/* Estilos para las cartas dentro del contenedor */
+.card-container .card {
+    width: 500px; /* Ancho de cada carta */
+    height: 300px; /* Altura de cada carta */
+    margin-bottom: 30px; /* Espacio inferior entre cada carta */
+    /* Otros estilos de las cartas según sea necesario */
+}
+
+
+.card{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back p{
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+
+/*card2*/
+
+.portfolio-3 {
+    width: 50%; /* Reducir el ancho del div portfolio-2 */
+    margin-right: 20px; /* Agregar margen a la derecha para separar del card */
+    text-align: left;
+}
+
+.portfolio-3 p {
+    /* Ajustar el tamaño del texto para ocupar menos espacio */
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.portfolio-4 {
+    width: 50%; /* Reducir el ancho del div portfolio-2 */
+    margin-right: 20px; /* Agregar margen a la derecha para separar del card */
+    text-align: right;
+}
+
+.portfolio-4 p {
+    /* Ajustar el tamaño del texto para ocupar menos espacio */
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.card2{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.card2 .face2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card2 .front2{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .front2 img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 .front2 h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.card2 .back2{
+    transform: perspective(600px) rotateX(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .back2 p{
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.card2:hover .front2{
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.card2:hover .back2{
+    transform: perspective(600px) rotateX(360deg);
+}
+
+
+.portfolio-3 h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.portfolio-4 h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
