@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Física</title>
+    <style>
+        /* Estilos para la barra desplegable */
+        .sidebar {
+            width: 0;
+            height: 100vh;
+            background-color: #f1f1f1;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: 0.5s;
+        }
+        
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Estilos para el botón de cierre */
+        .closebtn {
+            position: absolute;
+            top: 0;
+            left: -60px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Estilos para el contenido principal */
+        .content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+
+        /* Estilos para el título */
+        .content h1 {
+            text-align: center;
+        }
+
+        /* Estilos para la imagen */
+        .header-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleNav()">☰</button>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <br>
+        <a href="#">Inicio</a>
+        <a href="#">Mecánica</a>
+        <a href="#">Termodinámica</a>
+        <a href="#">Óptica</a>
+        <a href="#">Electromagnetismo</a>
+    </div>
+    
+    <img src="imagenes/foto de fisica.avif"Imagen de Física class="header-image">
+
+    <div id="mainContent" class="content">
+        <h1>Calculadora de Física</h1>
+        <p>Contenido principal de la página...</p>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("mySidebar");
+            if (nav.style.width === "200px") {
+                nav.style.width = "0";
+                document.getElementById("mainContent").style.marginLeft = "0";
+            } else {
+                nav.style.width = "200px";
+                document.getElementById("mainContent").style.marginLeft = "200px";
+            }
+        }
+    </script>
+</body>
+</html>
