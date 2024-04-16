@@ -26,6 +26,7 @@
                     <li><a href="fisicaModerna.html">Fisica moderna</a></li>
                 </ul>
             </nav>
+            
         </div>
 
         <div class="header-content container">
@@ -228,17 +229,15 @@
 
         <div>
             <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 20px;
-                }
                 label {
                     display: block;
                     margin-bottom: 5px;
                 }
+
                 input {
                     margin-bottom: 10px;
                 }
+
                 button {
                     padding: 8px 16px;
                     background-color: #4CAF50;
@@ -247,79 +246,83 @@
                     border-radius: 4px;
                     cursor: pointer;
                 }
+
                 button:hover {
                     background-color: #45a049;
                 }
+
                 #results div {
                     margin-top: 20px;
                 }
+
+                /* Estilos adicionales para ocultar la calculadora por defecto */
+                #soundIntensityCalculator {
+                    display: none;
+                }
             </style>
-            <body>
-            
-                <button onclick="showSoundIntensityCalculator()">Intensidad del Sonido</button>
-            
-                <div id="soundIntensityCalculator" style="display: none;">
-                    <h3>Calculadora de Intensidad del Sonido</h3>
-            
-                    <label for="intensity">Intensidad del sonido (I) en W/m²:</label>
-                    <input type="number" id="intensity">
-                    <label for="power">Potencia (P) en vatios:</label>
-                    <input type="number" id="power">
-                    <label for="radius">Radio (r) en metros:</label>
-                    <input type="number" id="radius">
-                    <button onclick="calculateSoundIntensity()">Calcular</button>
-                    <div id="results"></div>
-                </div>
-            
-                <script>
-                    function showSoundIntensityCalculator() {
-                        var calculator = document.getElementById('soundIntensityCalculator');
+
+            <button onclick="toggleSoundIntensityCalculator()">Mostrar/Esconder Calculadora</button>
+
+            <div id="soundIntensityCalculator">
+                <h3>Calculadora de Intensidad del Sonido</h3>
+
+                <label for="intensity">Intensidad del sonido (I) en W/m²:</label>
+                <input type="number" id="intensity">
+                <label for="power">Potencia (P) en vatios:</label>
+                <input type="number" id="power">
+                <label for="radius">Radio (r) en metros:</label>
+                <input type="number" id="radius">
+                <button onclick="calculateSoundIntensity()">Calcular</button>
+                <div id="results"></div>
+            </div>
+
+            <script>
+                function toggleSoundIntensityCalculator() {
+                    var calculator = document.getElementById('soundIntensityCalculator');
+                    if (calculator.style.display === 'none') {
                         calculator.style.display = 'block';
+                    } else {
+                        calculator.style.display = 'none';
                     }
-            
-                    function calculateSoundIntensity() {
-                        var intensity = parseFloat(document.getElementById('intensity').value);
-                        var power = parseFloat(document.getElementById('power').value);
-                        var radius = parseFloat(document.getElementById('radius').value);
-            
-                        if (isNaN(intensity) && isNaN(power) && isNaN(radius)) {
-                            alert('Por favor, ingrese al menos dos valores para calcular.');
-                            return;
-                        }
-            
-                        if (!isNaN(intensity) && !isNaN(power) && isNaN(radius)) {
-                            radius = Math.sqrt(power / (4 * Math.PI * intensity));
-                        } else if (!isNaN(intensity) && isNaN(power) && !isNaN(radius)) {
-                            power = intensity * 4 * Math.PI * Math.pow(radius, 2);
-                        } else if (isNaN(intensity) && !isNaN(power) && !isNaN(radius)) {
-                            intensity = power / (4 * Math.PI * Math.pow(radius, 2));
-                        }
-            
-                        var resultDiv = document.getElementById('results');
-                        resultDiv.innerHTML = '';
-            
-                        if (!isNaN(intensity)) {
-                            resultDiv.innerHTML += "<div>Intensidad del sonido (I): " + intensity.toFixed(2) + " W/m²</div>";
-                        }
-                        if (!isNaN(power)) {
-                            resultDiv.innerHTML += "<div>Potencia (P): " + power.toFixed(2) + " W</div>";
-                        }
-                        if (!isNaN(radius)) {
-                            resultDiv.innerHTML += "<div>Radio (r): " + radius.toFixed(2) + " m</div>";
-                        }
+                }
+
+                function calculateSoundIntensity() {
+                    var intensity = parseFloat(document.getElementById('intensity').value);
+                    var power = parseFloat(document.getElementById('power').value);
+                    var radius = parseFloat(document.getElementById('radius').value);
+
+                    if (isNaN(intensity) && isNaN(power) && isNaN(radius)) {
+                        alert('Por favor, ingrese al menos dos valores para calcular.');
+                        return;
                     }
-                </script>
-            
-            </body>
-            
+
+                    if (!isNaN(intensity) && !isNaN(power) && isNaN(radius)) {
+                        radius = Math.sqrt(power / (4 * Math.PI * intensity));
+                    } else if (!isNaN(intensity) && isNaN(power) && !isNaN(radius)) {
+                        power = intensity * 4 * Math.PI * Math.pow(radius, 2);
+                    } else if (isNaN(intensity) && !isNaN(power) && !isNaN(radius)) {
+                        intensity = power / (4 * Math.PI * Math.pow(radius, 2));
+                    }
+
+                    var resultDiv = document.getElementById('results');
+                    resultDiv.innerHTML = '';
+
+                    if (!isNaN(intensity)) {
+                        resultDiv.innerHTML += "<div>Intensidad del sonido (I): " + intensity.toFixed(2) + " W/m²</div>";
+                    }
+                    if (!isNaN(power)) {
+                        resultDiv.innerHTML += "<div>Potencia (P): " + power.toFixed(2) + " W</div>";
+                    }
+                    if (!isNaN(radius)) {
+                        resultDiv.innerHTML += "<div>Radio (r): " + radius.toFixed(2) + " m</div>";
+                    }
+                }
+            </script>
         </div>
-
-
-
         <hr>
 
         <!--Movimiento ondulatorio-->
-        <div class="portfolio">
+        <div class="portfolio" id="Movimiento_ondulatorio">
             <img src="images/o1.jfif" alt=""
                 style="border-radius: 10%; box-shadow: 0 5px 10px #000; width: 300px; height: 300px;">
             <div class="portfolio-1">
@@ -362,134 +365,140 @@
         </div><br><br>
 
         <div>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            padding: 5px;
-            margin-bottom: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 8px 15px;
-            background-color: #4CAF50; /* Cambiado a color verde */
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049; /* Cambiado a tono más oscuro de verde */
-        }
-
-        p {
-            margin-bottom: 5px;
-        }
-
-        #resultVelocity,
-        #resultFrequency,
-        #resultWavelength {
-            font-weight: bold;
-            color: #4CAF50; /* Cambiado a color verde */
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-
-<body>
-
-    <button id="toggleBtn" onclick="toggleContent()">Movimiento Ondulatorio</button>
-
-    <div id="waveCalculator" class="hidden">
-        <h2>Calculadora de Onda</h2>
-
-        <label for="velocity">Velocidad (v) (m/s): </label> <!-- Agregadas las unidades de medida -->
-        <input type="number" id="velocity" placeholder="Ingrese la velocidad"><br>
-
-        <label for="frequency">Frecuencia (f) (Hz): </label> <!-- Agregadas las unidades de medida -->
-        <input type="number" id="frequency" placeholder="Ingrese la frecuencia"><br>
-
-        <label for="wavelength">Longitud de onda (λ) (m): </label> <!-- Agregadas las unidades de medida -->
-        <input type="number" id="wavelength" placeholder="Ingrese la longitud de onda"><br>
-
-        <button onclick="calculateValues()">Calcular</button>
-
-        <p>Resultado:</p>
-        <p>Velocidad (v): <span id="resultVelocity"></span> m/s</p> <!-- Agregadas las unidades de medida -->
-        <p>Frecuencia (f): <span id="resultFrequency"></span> Hz</p> <!-- Agregadas las unidades de medida -->
-        <p>Longitud de onda (λ): <span id="resultWavelength"></span> m</p> <!-- Agregadas las unidades de medida -->
-    </div>
-
-    <script>
-        function calculateValues() {
-            // Obtener los valores ingresados por el usuario
-            var velocity = parseFloat(document.getElementById('velocity').value);
-            var frequency = parseFloat(document.getElementById('frequency').value);
-            var wavelength = parseFloat(document.getElementById('wavelength').value);
-
-            // Verificar si al menos dos valores están presentes
-            if (isNaN(velocity) && isNaN(frequency) && isNaN(wavelength)) {
-                alert('Por favor, ingrese al menos dos valores para calcular.');
-                return;
-            }
-
-            // Calcular y mostrar los resultados
-            if (isNaN(velocity)) {
-                document.getElementById('resultVelocity').innerHTML = '';
-                if (!isNaN(frequency) && !isNaN(wavelength)) {
-                    velocity = wavelength * frequency;
-                    document.getElementById('resultVelocity').innerHTML = velocity.toFixed(2); // Limitar a dos decimales
+            <style>
+                .calculator {
+                    color: #333;
+                    text-align: center;
+                    font-size: 18px;
+                    /* Cambiar el tamaño del título a 18px */
+                    margin-bottom: 15px;
                 }
-            }
 
-            if (isNaN(frequency)) {
-                document.getElementById('resultFrequency').innerHTML = '';
-                if (!isNaN(velocity) && !isNaN(wavelength)) {
-                    frequency = velocity / wavelength;
-                    document.getElementById('resultFrequency').innerHTML = frequency.toFixed(2); // Limitar a dos decimales
+                label {
+                    display: block;
+                    margin-bottom: 5px;
                 }
-            }
 
-            if (isNaN(wavelength)) {
-                document.getElementById('resultWavelength').innerHTML = '';
-                if (!isNaN(velocity) && !isNaN(frequency)) {
-                    wavelength = velocity / frequency;
-                    document.getElementById('resultWavelength').innerHTML = wavelength.toFixed(2); // Limitar a dos decimales
+                input {
+                    padding: 5px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
-            }
-        }
 
-        function toggleContent() {
-            var waveCalculator = document.getElementById('waveCalculator');
-            if (waveCalculator.classList.contains('hidden')) {
-                waveCalculator.classList.remove('hidden');
-                document.getElementById('toggleBtn').innerText = 'Ocultar Calculadora';
-            } else {
-                waveCalculator.classList.add('hidden');
-                document.getElementById('toggleBtn').innerText = 'Movimiento Ondulatorio';
-            }
-        }
-    </script>
+                button {
+                    padding: 8px 15px;
+                    background-color: #4CAF50;
+                    /* Cambiado a color verde */
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                }
 
-</body>
+                button:hover {
+                    background-color: #45a049;
+                    /* Cambiado a tono más oscuro de verde */
+                }
+
+                p {
+                    margin-bottom: 5px;
+                }
+
+                #resultVelocity,
+                #resultFrequency,
+                #resultWavelength {
+                    font-weight: bold;
+                    color: #4CAF50;
+                    /* Cambiado a color verde */
+                }
+
+                #waveCalculator {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Modificado el margen para centrar */
+                    display: none;
+                    /* Ocultar por defecto */
+                }
+            </style>
+            <button id="toggleBtn" onclick="toggleContent()">Movimiento Ondulatorio</button>
+
+            <div id="waveCalculator">
+                <h3 class="calculator">Calculadora de Onda</h3>
+
+                <label for="velocity">Velocidad (v) (m/s): </label>
+                <input type="number" id="velocity" placeholder="Ingrese la velocidad"><br>
+
+                <label for="frequency">Frecuencia (f) (Hz): </label>
+                <input type="number" id="frequency" placeholder="Ingrese la frecuencia"><br>
+
+                <label for="wavelength">Longitud de onda (λ) (m): </label>
+                <input type="number" id="wavelength" placeholder="Ingrese la longitud de onda"><br>
+
+                <button onclick="calculateValues()">Calcular</button>
+
+                <p>Resultado:</p>
+                <p>Velocidad (v): <span id="resultVelocity"></span> m/s</p>
+                <p>Frecuencia (f): <span id="resultFrequency"></span> Hz</p>
+                <p>Longitud de onda (λ): <span id="resultWavelength"></span> m</p>
+            </div>
+
+            <script>
+                function calculateValues() {
+                    var velocity = parseFloat(document.getElementById('velocity').value);
+                    var frequency = parseFloat(document.getElementById('frequency').value);
+                    var wavelength = parseFloat(document.getElementById('wavelength').value);
+
+                    if (isNaN(velocity) && isNaN(frequency) && isNaN(wavelength)) {
+                        alert('Por favor, ingrese al menos dos valores para calcular.');
+                        return;
+                    }
+
+                    if (isNaN(velocity)) {
+                        if (!isNaN(frequency) && !isNaN(wavelength)) {
+                            velocity = wavelength * frequency;
+                            document.getElementById('resultVelocity').innerText = velocity.toFixed(2);
+                        }
+                    }
+
+                    if (isNaN(frequency)) {
+                        if (!isNaN(velocity) && !isNaN(wavelength)) {
+                            frequency = velocity / wavelength;
+                            document.getElementById('resultFrequency').innerText = frequency.toFixed(2);
+                        }
+                    }
+
+                    if (isNaN(wavelength)) {
+                        if (!isNaN(velocity) && !isNaN(frequency)) {
+                            wavelength = velocity / frequency;
+                            document.getElementById('resultWavelength').innerText = wavelength.toFixed(2);
+                        }
+                    }
+                }
+
+                function toggleContent() {
+                    var waveCalculator = document.getElementById('waveCalculator');
+                    var toggleBtn = document.getElementById('toggleBtn');
+
+                    if (waveCalculator.style.display === 'none') {
+                        waveCalculator.style.display = 'block';
+                        toggleBtn.innerText = 'Ocultar Calculadora';
+                    } else {
+                        waveCalculator.style.display = 'none';
+                        toggleBtn.innerText = 'Movimiento Ondulatorio';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('velocity').value = '';
+                        document.getElementById('frequency').value = '';
+                        document.getElementById('wavelength').value = '';
+                        document.getElementById('resultVelocity').innerText = '';
+                        document.getElementById('resultFrequency').innerText = '';
+                        document.getElementById('resultWavelength').innerText = '';
+                    }
+                }
+            </script>
         </div>
 
         <hr>
@@ -550,133 +559,145 @@
 
 
         <div>
-<head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+            <style>
+                .calculator {
+                    color: #333;
+                    text-align: center;
+                    font-size: 18px;
+                    /* Tamaño del título */
+                    margin-bottom: 15px;
+                    /* Espacio debajo del título */
+                }
 
-        h2 {
-            color: #333;
-            text-align: center;
-        }
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+                input {
+                    padding: 5px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
 
-        input {
-            padding: 5px;
-            margin-bottom: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+                button {
+                    padding: 8px 15px;
+                    background-color: #4CAF50;
+                    /* Color de fondo verde */
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                }
 
-        button {
-            padding: 8px 15px;
-            background-color: #4CAF50; /* Cambiado a color verde */
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
+                button:hover {
+                    background-color: #45a049;
+                    /* Cambio de color al pasar el cursor */
+                }
 
-        button:hover {
-            background-color: #45a049; /* Cambiado a tono más oscuro de verde */
-        }
+                p {
+                    margin-bottom: 5px;
+                }
 
-        p {
-            margin-bottom: 5px;
-        }
+                #resultElongation,
+                #resultAmplitude,
+                #resultAngularFrequency,
+                #resultTime {
+                    font-weight: bold;
+                    color: #4CAF50;
+                    /* Color verde para los resultados */
+                }
 
-        #resultElongation,
-        #resultAmplitude,
-        #resultAngularFrequency,
-        #resultTime {
-            font-weight: bold;
-            color: #4CAF50; /* Cambiado a color verde */
-        }
+                #masCalculator {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Centrar en la página */
+                    display: none;
+                    /* Ocultar por defecto */
+                }
+            </style>
 
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
+            <button id="toggleBtn2" onclick="toggleContent2()">Movimiento Armónico Simple</button>
 
-<body>
+            <div id="masCalculator">
+                <h3 class="calculator">Calculadora de Movimiento Armónico Simple (MAS)</h3>
 
-    <button id="toggleBtn2" onclick="toggleContent2()">Movimiento Armónico Simple</button>
+                <label for="elongation">Elongación (x) (m): </label>
+                <input type="number" id="elongation" placeholder="Ingrese la elongación"><br>
 
-    <div id="masCalculator" class="hidden">
-        <h2>Calculadora de Movimiento Armónico Simple (MAS)</h2>
+                <label for="amplitude">Amplitud (A) (m): </label>
+                <input type="number" id="amplitude" placeholder="Ingrese la amplitud"><br>
 
-        <label for="elongation">Elongación (x) (m): </label>
-        <input type="number" id="elongation" placeholder="Ingrese la elongación"><br>
+                <label for="angularFrequency">Frecuencia Angular (ω) (rad/s): </label>
+                <input type="number" id="angularFrequency" placeholder="Ingrese la frecuencia angular"><br>
 
-        <label for="amplitude">Amplitud (A) (m): </label>
-        <input type="number" id="amplitude" placeholder="Ingrese la amplitud"><br>
+                <label for="time">Tiempo (t) (s): </label>
+                <input type="number" id="time" placeholder="Ingrese el tiempo"><br>
 
-        <label for="angularFrequency">Frecuencia Angular (w) (rad/s): </label>
-        <input type="number" id="angularFrequency" placeholder="Ingrese la frecuencia angular"><br>
+                <button onclick="calculateValues2()">Calcular</button>
 
-        <label for="time">Tiempo (t) (s): </label>
-        <input type="number" id="time" placeholder="Ingrese el tiempo"><br>
+                <p>Resultado:</p>
+                <p>Elongación (x): <span id="resultElongation"></span> m</p>
+                <p>Amplitud (A): <span id="resultAmplitude"></span> m</p>
+                <p>Frecuencia Angular (ω): <span id="resultAngularFrequency"></span> rad/s</p>
+                <p>Tiempo (t): <span id="resultTime"></span> s</p>
+            </div>
 
-        <button onclick="calculateValues2()">Calcular</button>
+            <script>
+                function calculateValues2() {
+                    var elongation = parseFloat(document.getElementById('elongation').value);
+                    var amplitude = parseFloat(document.getElementById('amplitude').value);
+                    var angularFrequency = parseFloat(document.getElementById('angularFrequency').value);
+                    var time = parseFloat(document.getElementById('time').value);
 
-        <p>Resultado:</p>
-        <p>Elongación (x): <span id="resultElongation"></span> m</p>
-        <p>Amplitud (A): <span id="resultAmplitude"></span> m</p>
-        <p>Frecuencia Angular (w): <span id="resultAngularFrequency"></span> rad/s</p>
-        <p>Tiempo (t): <span id="resultTime"></span> s</p>
-    </div>
+                    var valuesCount = [elongation, amplitude, angularFrequency, time].filter(val => !isNaN(val)).length;
+                    if (valuesCount < 3) {
+                        alert('Por favor, ingrese al menos tres valores para calcular el valor faltante.');
+                        return;
+                    }
 
-    <script>
-        function calculateValues2() {
-            // Obtener los valores ingresados por el usuario
-            var elongation = parseFloat(document.getElementById('elongation').value);
-            var amplitude = parseFloat(document.getElementById('amplitude').value);
-            var angularFrequency = parseFloat(document.getElementById('angularFrequency').value);
-            var time = parseFloat(document.getElementById('time').value);
+                    if (isNaN(elongation)) {
+                        elongation = amplitude * Math.cos(angularFrequency * time);
+                        document.getElementById('resultElongation').innerText = elongation.toFixed(2);
+                    } else if (isNaN(amplitude)) {
+                        amplitude = elongation / Math.cos(angularFrequency * time);
+                        document.getElementById('resultAmplitude').innerText = amplitude.toFixed(2);
+                    } else if (isNaN(angularFrequency)) {
+                        angularFrequency = Math.acos(elongation / (amplitude * time));
+                        document.getElementById('resultAngularFrequency').innerText = angularFrequency.toFixed(2);
+                    } else if (isNaN(time)) {
+                        time = Math.acos(elongation / (amplitude * angularFrequency));
+                        document.getElementById('resultTime').innerText = time.toFixed(2);
+                    }
+                }
 
-            // Verificar si se ingresaron al menos tres valores
-            var valuesCount = [elongation, amplitude, angularFrequency, time].filter(val => !isNaN(val)).length;
-            if (valuesCount < 3) {
-                alert('Por favor, ingrese al menos tres valores para calcular el valor faltante.');
-                return;
-            }
+                function toggleContent2() {
+                    var masCalculator = document.getElementById('masCalculator');
+                    var toggleBtn = document.getElementById('toggleBtn2');
 
-            // Calcular el valor faltante
-            if (isNaN(elongation)) {
-                elongation = amplitude * Math.cos(angularFrequency * time);
-                document.getElementById('resultElongation').innerHTML = elongation.toFixed(2); // Limitar a dos decimales
-            } else if (isNaN(amplitude)) {
-                amplitude = elongation / Math.cos(angularFrequency * time);
-                document.getElementById('resultAmplitude').innerHTML = amplitude.toFixed(2); // Limitar a dos decimales
-            } else if (isNaN(angularFrequency)) {
-                angularFrequency = Math.acos(elongation / (amplitude * time));
-                document.getElementById('resultAngularFrequency').innerHTML = angularFrequency.toFixed(2); // Limitar a dos decimales
-            } else if (isNaN(time)) {
-                time = Math.acos(elongation / (amplitude * angularFrequency));
-                document.getElementById('resultTime').innerHTML = time.toFixed(2); // Limitar a dos decimales
-            }
-        }
-
-        function toggleContent2() {
-            var masCalculator = document.getElementById('masCalculator');
-            if (masCalculator.classList.contains('hidden')) {
-                masCalculator.classList.remove('hidden');
-                document.getElementById('toggleBtn2').innerText = 'Ocultar Calculadora';
-            } else {
-                masCalculator.classList.add('hidden');
-                document.getElementById('toggleBtn2').innerText = 'Movimiento Armónico Simple';
-            }
-        }
-    </script>
-
-</body>
+                    if (masCalculator.style.display === 'none') {
+                        masCalculator.style.display = 'block';
+                        toggleBtn.innerText = 'Ocultar Calculadora';
+                    } else {
+                        masCalculator.style.display = 'none';
+                        toggleBtn.innerText = 'Movimiento Armónico Simple';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('elongation').value = '';
+                        document.getElementById('amplitude').value = '';
+                        document.getElementById('angularFrequency').value = '';
+                        document.getElementById('time').value = '';
+                        document.getElementById('resultElongation').innerText = '';
+                        document.getElementById('resultAmplitude').innerText = '';
+                        document.getElementById('resultAngularFrequency').innerText = '';
+                        document.getElementById('resultTime').innerText = '';
+                    }
+                }
+            </script>
         </div>
 
         <hr>
@@ -727,146 +748,114 @@
 
 
         <div>
-            <head>
-                <meta charset="UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Movimiento Periódico</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        margin: 20px;
+            <style>
+                #resultPosition,
+                #resultAmplitude,
+                #resultAngularFrequency,
+                #resultTime,
+                #resultInitialPhase {
+                    font-weight: bold;
+                    color: #4CAF50;
+                    /* Cambiado a color verde */
+                }
+
+                #periodicMotionCalculator {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Centrar en la página */
+                    display: none;
+                    /* Ocultar por defecto */
+                }
+            </style>
+
+            <button id="toggleBtn3" onclick="toggleContent3()">Movimiento Periódico</button>
+
+            <div id="periodicMotionCalculator">
+                <h3 class="calculator">Movimiento Periódico</h3>
+
+                <label for="position2">Posición (x(t)) (m): </label>
+                <input type="number" id="position2" placeholder="Ingrese la posición"><br>
+
+                <label for="amplitude2">Amplitud (A) (m): </label>
+                <input type="number" id="amplitude2" placeholder="Ingrese la amplitud"><br>
+
+                <label for="angularFrequency2">Frecuencia Angular (w) (rad/s): </label>
+                <input type="number" id="angularFrequency2" placeholder="Ingrese la frecuencia angular"><br>
+
+                <label for="time2">Tiempo (t) (s): </label>
+                <input type="number" id="time2" placeholder="Ingrese el tiempo"><br>
+
+                <label for="initialPhase2">Fase Inicial (θ) (rad): </label>
+                <input type="number" id="initialPhase2" placeholder="Ingrese la fase inicial"><br>
+
+                <button onclick="calculateValues3()">Calcular</button>
+
+                <p>Resultado:</p>
+                <p>Posición (x(t)): <span id="resultPosition"></span> m</p>
+                <p>Amplitud (A): <span id="resultAmplitude"></span> m</p>
+                <p>Frecuencia Angular (w): <span id="resultAngularFrequency"></span> rad/s</p>
+                <p>Tiempo (t): <span id="resultTime"></span> s</p>
+                <p>Fase Inicial (θ): <span id="resultInitialPhase"></span> rad</p>
+            </div>
+
+            <script>
+                function calculateValues3() {
+                    var position = parseFloat(document.getElementById('position2').value);
+                    var amplitude = parseFloat(document.getElementById('amplitude2').value);
+                    var angularFrequency = parseFloat(document.getElementById('angularFrequency2').value);
+                    var time = parseFloat(document.getElementById('time2').value);
+                    var initialPhase = parseFloat(document.getElementById('initialPhase2').value);
+
+                    var valuesCount = [position, amplitude, angularFrequency, time, initialPhase].filter(val => !isNaN(val)).length;
+                    if (valuesCount < 3) {
+                        alert('Por favor, ingrese al menos tres valores para calcular el valor faltante.');
+                        return;
                     }
-            
-                    h2 {
-                        color: #333;
-                        text-align: center;
+
+                    if (isNaN(position)) {
+                        position = amplitude * Math.sin(angularFrequency * time + initialPhase);
+                        document.getElementById('resultPosition').innerText = position.toFixed(2);
+                    } else if (isNaN(amplitude)) {
+                        amplitude = position / Math.sin(angularFrequency * time + initialPhase);
+                        document.getElementById('resultAmplitude').innerText = amplitude.toFixed(2);
+                    } else if (isNaN(angularFrequency)) {
+                        angularFrequency = (Math.asin(position / amplitude) - initialPhase) / time;
+                        document.getElementById('resultAngularFrequency').innerText = angularFrequency.toFixed(2);
+                    } else if (isNaN(time)) {
+                        time = (Math.asin(position / amplitude) - initialPhase) / angularFrequency;
+                        document.getElementById('resultTime').innerText = time.toFixed(2);
+                    } else if (isNaN(initialPhase)) {
+                        initialPhase = Math.asin(position / (amplitude * Math.sin(angularFrequency * time)));
+                        document.getElementById('resultInitialPhase').innerText = initialPhase.toFixed(2);
                     }
-            
-                    label {
-                        display: block;
-                        margin-bottom: 5px;
+                }
+
+                function toggleContent3() {
+                    var periodicMotionCalculator = document.getElementById('periodicMotionCalculator');
+                    if (periodicMotionCalculator.style.display === 'none') {
+                        periodicMotionCalculator.style.display = 'block';
+                        document.getElementById('toggleBtn3').innerText = 'Ocultar Calculadora';
+                    } else {
+                        periodicMotionCalculator.style.display = 'none';
+                        document.getElementById('toggleBtn3').innerText = 'Movimiento Periódico';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('position2').value = '';
+                        document.getElementById('amplitude2').value = '';
+                        document.getElementById('angularFrequency2').value = '';
+                        document.getElementById('time2').value = '';
+                        document.getElementById('initialPhase2').value = '';
+                        document.getElementById('resultPosition').innerText = '';
+                        document.getElementById('resultAmplitude').innerText = '';
+                        document.getElementById('resultAngularFrequency').innerText = '';
+                        document.getElementById('resultTime').innerText = '';
+                        document.getElementById('resultInitialPhase').innerText = '';
                     }
-            
-                    input {
-                        padding: 5px;
-                        margin-bottom: 10px;
-                        width: 100%;
-                        box-sizing: border-box;
-                    }
-            
-                    button {
-                        padding: 8px 15px;
-                        background-color: #4CAF50; /* Cambiado a color verde */
-                        color: #fff;
-                        border: none;
-                        cursor: pointer;
-                        margin-bottom: 10px;
-                    }
-            
-                    button:hover {
-                        background-color: #45a049; /* Cambiado a tono más oscuro de verde */
-                    }
-            
-                    p {
-                        margin-bottom: 5px;
-                    }
-            
-                    #resultPosition,
-                    #resultAmplitude,
-                    #resultAngularFrequency,
-                    #resultTime,
-                    #resultInitialPhase {
-                        font-weight: bold;
-                        color: #4CAF50; /* Cambiado a color verde */
-                    }
-            
-                    .hidden {
-                        display: none;
-                    }
-                </style>
-            </head>
-            
-            <body>
-            
-                <button id="toggleBtn3" onclick="toggleContent3()">Movimiento Periódico</button>
-            
-                <div id="periodicMotionCalculator" class="hidden">
-                    <h2>Movimiento Periódico</h2>
-            
-                    <label for="position">Posición (x(t)) (m): </label>
-                    <input type="number" id="position2" placeholder="Ingrese la posición"><br>
-            
-                    <label for="amplitude">Amplitud (A) (m): </label>
-                    <input type="number" id="amplitude2" placeholder="Ingrese la amplitud"><br>
-            
-                    <label for="angularFrequency">Frecuencia Angular (w) (rad/s): </label>
-                    <input type="number" id="angularFrequency2" placeholder="Ingrese la frecuencia angular"><br>
-            
-                    <label for="time">Tiempo (t) (s): </label>
-                    <input type="number" id="time2" placeholder="Ingrese el tiempo"><br>
-            
-                    <label for="initialPhase">Fase Inicial (θ) (rad): </label>
-                    <input type="number" id="initialPhase2" placeholder="Ingrese la fase inicial"><br>
-            
-                    <button onclick="calculateValues3()">Calcular</button>
-            
-                    <p>Resultado:</p>
-                    <p>Posición (x(t)): <span id="resultPosition2"></span> m</p>
-                    <p>Amplitud (A): <span id="resultAmplitude2"></span> m</p>
-                    <p>Frecuencia Angular (w): <span id="resultAngularFrequency2"></span> rad/s</p>
-                    <p>Tiempo (t): <span id="resultTime2"></span> s</p>
-                    <p>Fase Inicial (θ): <span id="resultInitialPhase2"></span> rad</p>
-                </div>
-            
-                <script>
-                    function calculateValues3() {
-                        // Obtener los valores ingresados por el usuario
-                        var position = parseFloat(document.getElementById('position2').value);
-                        var amplitude = parseFloat(document.getElementById('amplitude2').value);
-                        var angularFrequency = parseFloat(document.getElementById('angularFrequency2').value);
-                        var time = parseFloat(document.getElementById('time2').value);
-                        var initialPhase = parseFloat(document.getElementById('initialPhase2').value);
-            
-                        // Verificar si se ingresaron al menos tres valores
-                        var valuesCount = [position, amplitude, angularFrequency, time, initialPhase].filter(val => !isNaN(val)).length;
-                        if (valuesCount < 3) {
-                            alert('Por favor, ingrese al menos tres valores para calcular el valor faltante.');
-                            return;
-                        }
-            
-                        // Calcular el valor faltante
-                        if (isNaN(position)) {
-                            position = amplitude * Math.sin(angularFrequency * time + initialPhase);
-                            document.getElementById('resultPosition2').innerHTML = position.toFixed(2); // Limitar a dos decimales
-                        } else if (isNaN(amplitude)) {
-                            amplitude = position / Math.sin(angularFrequency * time + initialPhase);
-                            document.getElementById('resultAmplitude2').innerHTML = amplitude.toFixed(2); // Limitar a dos decimales
-                        } else if (isNaN(angularFrequency)) {
-                            angularFrequency = (Math.asin(position / amplitude) - initialPhase) / time;
-                            document.getElementById('resultAngularFrequency2').innerHTML = angularFrequency.toFixed(2); // Limitar a dos decimales
-                        } else if (isNaN(time)) {
-                            time = (Math.asin(position / amplitude) - initialPhase) / angularFrequency;
-                            document.getElementById('resultTime2').innerHTML = time.toFixed(2); // Limitar a dos decimales
-                        } else if (isNaN(initialPhase)) {
-                            initialPhase = Math.asin(position / (amplitude * Math.sin(angularFrequency * time)));
-                            document.getElementById('resultInitialPhase2').innerHTML = initialPhase.toFixed(2); // Limitar a dos decimales
-                        }
-                    }
-            
-                    function toggleContent3() {
-                        var periodicMotionCalculator = document.getElementById('periodicMotionCalculator');
-                        if (periodicMotionCalculator.classList.contains('hidden')) {
-                            periodicMotionCalculator.classList.remove('hidden');
-                            document.getElementById('toggleBtn3').innerText = 'Ocultar Calculadora';
-                        } else {
-                            periodicMotionCalculator.classList.add('hidden');
-                            document.getElementById('toggleBtn3').innerText = 'Movimiento Periódico';
-                        }
-                    }
-                </script>
-            
-            </body>
+                }
+            </script>
         </div>
 
         <hr>
@@ -895,12 +884,12 @@
                 </p><br>
             </div>
             <!-- Tarjeta 2 -->
-            <div class="card2">
-                <div class="face2 front2">
+            <div class="cardEl">
+                <div class="faceEl frontEl">
                     <img src="images/e1.jfif" alt="" style="border-radius: 10px;">
                     <h3>Energía potencial elástica </h3>
                 </div>
-                <div class="face2 back2">
+                <div class="faceEl backEl">
                     <h3>Energía potencial elástica </h3>
                     <p>
                         La energía potencial elástica asociada a la fuerza elástica se representa mediante la fórmula
@@ -973,96 +962,63 @@
 
         <div>
             <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 20px;
-                }
-        
-                h2 {
-                    color: #333;
-                    text-align: center;
-                }
-        
-                label {
-                    display: block;
-                    margin-bottom: 5px;
-                }
-        
-                input {
-                    padding: 5px;
-                    margin-bottom: 10px;
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-        
-                button {
-                    padding: 8px 15px;
-                    background-color: #4CAF50; /* Cambiado a color verde */
-                    color: #fff;
-                    border: none;
-                    cursor: pointer;
-                    margin-bottom: 10px;
-                }
-        
-                button:hover {
-                    background-color: #45a049; /* Cambiado a tono más oscuro de verde */
-                }
-        
-                p {
-                    margin-bottom: 5px;
-                }
-        
                 #resultForce,
                 #resultSpringConstant,
                 #resultChangeInLength {
                     font-weight: bold;
-                    color: #4CAF50; /* Cambiado a color verde */
+                    color: #4CAF50;
+                    /* Cambiado a color verde */
                 }
-        
-                .hidden {
+
+                #springForceCalculator {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Centrar en la página */
                     display: none;
+                    /* Ocultar por defecto */
                 }
             </style>
-        </head>
-        
-        <body>
-        
+
             <button id="toggleBtn4" onclick="toggleContent4()">Ley de Hooke</button>
-        
-            <div id="springForceCalculator" class="hidden">
-                <h2>Ley de Hooke</h2>
-        
+
+            <div id="springForceCalculator">
+                <h3 class="calculator">Ley de Hooke</h3>
+
                 <label for="force">Fuerza aplicada al resorte (F) (N): </label>
                 <input type="number" id="force4" placeholder="Ingrese la fuerza"><br>
-        
+
                 <label for="springConstant">Constante del resorte (k) (N/m): </label>
                 <input type="number" id="springConstant4" placeholder="Ingrese la constante del resorte"><br>
-        
+
                 <label for="changeInLength">Cambio en la longitud del resorte (m): </label>
                 <input type="number" id="changeInLength4" placeholder="Ingrese el cambio en la longitud"><br>
-        
+
                 <button onclick="calculateValues4()">Calcular</button>
-        
+
                 <p>Resultado:</p>
                 <p>Fuerza aplicada al resorte (F): <span id="resultForce4"></span> N</p>
                 <p>Constante del resorte (k): <span id="resultSpringConstant4"></span> N/m</p>
                 <p>Cambio en la longitud del resorte: <span id="resultChangeInLength4"></span> m</p>
             </div>
-        
+
             <script>
                 function calculateValues4() {
                     // Obtener los valores ingresados por el usuario
                     var force = parseFloat(document.getElementById('force4').value);
                     var springConstant = parseFloat(document.getElementById('springConstant4').value);
                     var changeInLength = parseFloat(document.getElementById('changeInLength4').value);
-        
+
                     // Verificar si se ingresaron al menos dos valores
                     var valuesCount = [force, springConstant, changeInLength].filter(val => !isNaN(val)).length;
                     if (valuesCount < 2) {
                         alert('Por favor, ingrese al menos dos valores para calcular el valor faltante.');
                         return;
                     }
-        
+
                     // Calcular el valor faltante
                     if (isNaN(force)) {
                         force = -springConstant * changeInLength;
@@ -1075,20 +1031,25 @@
                         document.getElementById('resultChangeInLength4').innerHTML = changeInLength.toFixed(2); // Limitar a dos decimales
                     }
                 }
-        
+
                 function toggleContent4() {
                     var springForceCalculator = document.getElementById('springForceCalculator');
-                    if (springForceCalculator.classList.contains('hidden')) {
-                        springForceCalculator.classList.remove('hidden');
+                    if (springForceCalculator.style.display === 'none') {
+                        springForceCalculator.style.display = 'block';
                         document.getElementById('toggleBtn4').innerText = 'Ocultar Calculadora';
                     } else {
-                        springForceCalculator.classList.add('hidden');
+                        springForceCalculator.style.display = 'none';
                         document.getElementById('toggleBtn4').innerText = 'Calculadora de Fuerza en Resorte';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('force4').value = '';
+                        document.getElementById('springConstant4').value = '';
+                        document.getElementById('changeInLength4').value = '';
+                        document.getElementById('resultForce').innerText = '';
+                        document.getElementById('resultSpringConstant').innerText = '';
+                        document.getElementById('resultChangeInLength').innerText = '';
                     }
                 }
             </script>
-        
-        </body>
         </div>
 
 
@@ -1233,110 +1194,99 @@
                 style="border-radius: 10%; box-shadow: 0 5px 10px #000; width: 270px; height: 270px;">
         </div><br><br>
 
-        
+
         <div>
             <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    input {
-        margin-bottom: 10px;
-        padding: 5px;
-    }
-    button {
-        padding: 8px 16px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-    #inverseSquareCalculator {
-        display: none; /* Ocultar el contenido al principio */
-    }
-    #results div {
-        margin-top: 20px;
-    }
-</style>
-</head>
-<body>
-    <button onclick="toggleInverseSquareCalculator()">Inversa del Cuadrado</button>
+                #inverseSquareCalculator {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Centrar en la página */
+                    display: none;
+                    /* Ocultar por defecto */
+                }
 
-    <div id="inverseSquareCalculator">
-        <h3>Calculadora del Inverso del Cuadrado para Intensidad</h3>
+                #results2 {
+                    margin-top: 10px;
+                    border-top: 1px solid #ccc;
+                    padding-top: 10px;
+                }
+            </style>
+            <button onclick="toggleInverseSquareCalculator()">Inversa del Cuadrado</button>
 
-        <label for="intensity1">Intensidad (I1) en W/m²:</label>
-        <input type="number" id="intensity1">
-        <label for="intensity2">Intensidad (I2) en W/m²:</label>
-        <input type="number" id="intensity2">
-        <label for="radius1">Radio (R1) en metros:</label>
-        <input type="number" id="radius1">
-        <label for="radius2">Radio (R2) en metros:</label>
-        <input type="number" id="radius2">
-        <button onclick="calculateInverseSquare()">Calcular</button>
-        <div id="results2"></div>
-    </div>
+            <div id="inverseSquareCalculator">
+                <h3 class="calculator">Calculadora del Inverso del Cuadrado para Intensidad</h3>
 
-    <script>
-        function toggleInverseSquareCalculator() {
-            var calculator = document.getElementById('inverseSquareCalculator');
-            if (calculator.style.display === 'none') {
-                calculator.style.display = 'block';
-            } else {
-                calculator.style.display = 'none';
-            }
-        }
+                <label for="intensity1">Intensidad (I1) en W/m²:</label>
+                <input type="number" id="intensity1">
+                <label for="intensity2">Intensidad (I2) en W/m²:</label>
+                <input type="number" id="intensity2">
+                <label for="radius1">Radio (R1) en metros:</label>
+                <input type="number" id="radius1">
+                <label for="radius2">Radio (R2) en metros:</label>
+                <input type="number" id="radius2">
+                <button onclick="calculateInverseSquare()">Calcular</button>
+                <div id="results2"></div>
+            </div>
 
-        function calculateInverseSquare() {
-            var intensity1 = parseFloat(document.getElementById('intensity1').value);
-            var intensity2 = parseFloat(document.getElementById('intensity2').value);
-            var radius1 = parseFloat(document.getElementById('radius1').value);
-            var radius2 = parseFloat(document.getElementById('radius2').value);
+            <script>
+                function toggleInverseSquareCalculator() {
+                    var calculator = document.getElementById('inverseSquareCalculator');
+                    if (calculator.style.display === 'none') {
+                        calculator.style.display = 'block';
+                    } else {
+                        calculator.style.display = 'none';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('intensity1').value = '';
+                        document.getElementById('intensity2').value = '';
+                        document.getElementById('radius1').value = '';
+                        document.getElementById('radius2').value = '';
+                        document.getElementById('results2').innerHTML = '';
+                    }
+                }
 
-            if (isNaN(intensity1) && isNaN(intensity2) && isNaN(radius1) && isNaN(radius2)) {
-                alert('Por favor, ingrese al menos dos valores para calcular.');
-                return;
-            }
+                function calculateInverseSquare() {
+                    var intensity1 = parseFloat(document.getElementById('intensity1').value);
+                    var intensity2 = parseFloat(document.getElementById('intensity2').value);
+                    var radius1 = parseFloat(document.getElementById('radius1').value);
+                    var radius2 = parseFloat(document.getElementById('radius2').value);
 
-            if (!isNaN(intensity1) && !isNaN(intensity2) && isNaN(radius1) && !isNaN(radius2)) {
-                radius1 = Math.sqrt((intensity1 / intensity2) * Math.pow(radius2, 2));
-            } else if (!isNaN(intensity1) && !isNaN(intensity2) && !isNaN(radius1) && isNaN(radius2)) {
-                radius2 = Math.sqrt((intensity2 / intensity1) * Math.pow(radius1, 2));
-            } else if (!isNaN(intensity1) && isNaN(intensity2) && !isNaN(radius1) && !isNaN(radius2)) {
-                intensity2 = intensity1 * Math.pow(radius2, 2) / Math.pow(radius1, 2);
-            } else if (isNaN(intensity1) && !isNaN(intensity2) && !isNaN(radius1) && !isNaN(radius2)) {
-                intensity1 = intensity2 * Math.pow(radius1, 2) / Math.pow(radius2, 2);
-            }
+                    if (isNaN(intensity1) && isNaN(intensity2) && isNaN(radius1) && isNaN(radius2)) {
+                        alert('Por favor, ingrese al menos dos valores para calcular.');
+                        return;
+                    }
 
-            var resultDiv = document.getElementById('results2');
-            resultDiv.innerHTML = '';
+                    if (!isNaN(intensity1) && !isNaN(intensity2) && isNaN(radius1) && !isNaN(radius2)) {
+                        radius1 = Math.sqrt((intensity1 / intensity2) * Math.pow(radius2, 2));
+                    } else if (!isNaN(intensity1) && !isNaN(intensity2) && !isNaN(radius1) && isNaN(radius2)) {
+                        radius2 = Math.sqrt((intensity2 / intensity1) * Math.pow(radius1, 2));
+                    } else if (!isNaN(intensity1) && isNaN(intensity2) && !isNaN(radius1) && !isNaN(radius2)) {
+                        intensity2 = intensity1 * Math.pow(radius2, 2) / Math.pow(radius1, 2);
+                    } else if (isNaN(intensity1) && !isNaN(intensity2) && !isNaN(radius1) && !isNaN(radius2)) {
+                        intensity1 = intensity2 * Math.pow(radius1, 2) / Math.pow(radius2, 2);
+                    }
 
-            if (!isNaN(intensity1)) {
-                resultDiv.innerHTML += "<div>Intensidad (I1): " + intensity1.toFixed(2) + " W/m²</div>";
-            }
-            if (!isNaN(intensity2)) {
-                resultDiv.innerHTML += "<div>Intensidad (I2): " + intensity2.toFixed(2) + " W/m²</div>";
-            }
-            if (!isNaN(radius1)) {
-                resultDiv.innerHTML += "<div>Radio (R1): " + radius1.toFixed(2) + " m</div>";
-            }
-            if (!isNaN(radius2)) {
-                resultDiv.innerHTML += "<div>Radio (R2): " + radius2.toFixed(2) + " m</div>";
-            }
-        }
-    </script>
+                    var resultDiv = document.getElementById('results2');
+                    resultDiv.innerHTML = '';
 
-</body>
+                    if (!isNaN(intensity1)) {
+                        resultDiv.innerHTML += "<div>Intensidad (I1): " + intensity1.toFixed(2) + " W/m²</div>";
+                    }
+                    if (!isNaN(intensity2)) {
+                        resultDiv.innerHTML += "<div>Intensidad (I2): " + intensity2.toFixed(2) + " W/m²</div>";
+                    }
+                    if (!isNaN(radius1)) {
+                        resultDiv.innerHTML += "<div>Radio (R1): " + radius1.toFixed(2) + " m</div>";
+                    }
+                    if (!isNaN(radius2)) {
+                        resultDiv.innerHTML += "<div>Radio (R2): " + radius2.toFixed(2) + " m</div>";
+                    }
+                }
+            </script>
         </div>
-
         <hr>
 
         <!--intensidad de las ondas-->
@@ -1385,97 +1335,86 @@
 
                 <!--<a href="#" class="btn-2">informacion</a>-->
             </div>
-        </div>
+        </div><br>
 
 
         <div>
             <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 20px;
-                }
-                label {
-                    display: block;
-                    margin-bottom: 5px;
-                }
-                input {
-                    margin-bottom: 10px;
-                    padding: 5px;
-                }
-                button {
-                    padding: 8px 16px;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                }
-                button:hover {
-                    background-color: #45a049;
-                }
-                #intensityCalculator {
+                .calculator-section {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    margin: 20px auto;
+                    /* Centrar en la página */
                     display: none;
+                    /* Ocultar por defecto */
                 }
-                #results20 div {
-                    margin-top: 20px;
+
+                #results20 {
+                    margin-top: 10px;
+                    border-top: 1px solid #ccc;
+                    padding-top: 10px;
                 }
             </style>
-            </head>
-            <body>
-                <button onclick="toggleIntensityCalculator20()">Intensidad de Onda</button>
-            
-                <div id="intensityCalculator20">
-                    <h3>Calculadora de Intensidad de Onda</h3>
-            
-                    <label for="power">Potencia Total (P) en vatios:</label>
-                    <input type="number" id="power20">
-                    <label for="area">Área de Transmisión (A) en metros cuadrados:</label>
-                    <input type="number" id="area20">
-                    <label for="intensity">Intensidad de Onda (I) en W/m²:</label>
-                    <input type="number" id="intensity20">
-                    <button onclick="calculateIntensity20()">Calcular</button>
-                    <div id="results20"></div>
-                </div>
-            
-                <script>
-                    function toggleIntensityCalculator20() {
-                        var calculator = document.getElementById('intensityCalculator20');
-                        if (calculator.style.display === 'none') {
-                            calculator.style.display = 'block';
-                        } else {
-                            calculator.style.display = 'none';
-                        }
+            <button onclick="toggleIntensityCalculator20()">Intensidad de Onda</button>
+
+            <div id="intensityCalculator20" class="calculator-section">
+                <h3 class="calculator">Calculadora de Intensidad de Onda</h3>
+
+                <label for="power20">Potencia Total (P) en vatios:</label>
+                <input type="number" id="power20">
+                <label for="area20">Área de Transmisión (A) en metros cuadrados:</label>
+                <input type="number" id="area20">
+                <label for="intensity20">Intensidad de Onda (I) en W/m²:</label>
+                <input type="number" id="intensity20">
+                <button onclick="calculateIntensity20()">Calcular</button>
+                <div id="results20"></div>
+            </div>
+
+            <script>
+                function toggleIntensityCalculator20() {
+                    var calculator = document.getElementById('intensityCalculator20');
+                    if (calculator.style.display === 'none') {
+                        calculator.style.display = 'block';
+                    } else {
+                        calculator.style.display = 'none';
+                        // Limpiar los campos y resultados al ocultar la calculadora
+                        document.getElementById('power20').value = '';
+                        document.getElementById('area20').value = '';
+                        document.getElementById('intensity20').value = '';
+                        document.getElementById('results20').innerHTML = '';
                     }
-            
-                    function calculateIntensity20() {
-                        var power = parseFloat(document.getElementById('power20').value);
-                        var area = parseFloat(document.getElementById('area20').value);
-                        var intensity = parseFloat(document.getElementById('intensity20').value);
-            
-                        if (isNaN(power) && !isNaN(area) && !isNaN(intensity)) {
-                            power = area * intensity;
-                        } else if (!isNaN(power) && isNaN(area) && !isNaN(intensity)) {
-                            area = power / intensity;
-                        } else if (!isNaN(power) && !isNaN(area) && isNaN(intensity)) {
-                            intensity = power / area;
-                        }
-            
-                        var resultDiv = document.getElementById('results20');
-                        resultDiv.innerHTML = '';
-            
-                        if (!isNaN(intensity)) {
-                            resultDiv.innerHTML += "<div>Intensidad de Onda (I): " + intensity.toFixed(2) + " W/m²</div>";
-                        }
-                        if (!isNaN(power)) {
-                            resultDiv.innerHTML += "<div>Potencia Total (P): " + power.toFixed(2) + " vatios</div>";
-                        }
-                        if (!isNaN(area)) {
-                            resultDiv.innerHTML += "<div>Área de Transmisión (A): " + area.toFixed(2) + " metros cuadrados</div>";
-                        }
+                }
+
+                function calculateIntensity20() {
+                    var power = parseFloat(document.getElementById('power20').value);
+                    var area = parseFloat(document.getElementById('area20').value);
+                    var intensity = parseFloat(document.getElementById('intensity20').value);
+
+                    if (isNaN(power) && !isNaN(area) && !isNaN(intensity)) {
+                        power = area * intensity;
+                    } else if (!isNaN(power) && isNaN(area) && !isNaN(intensity)) {
+                        area = power / intensity;
+                    } else if (!isNaN(power) && !isNaN(area) && isNaN(intensity)) {
+                        intensity = power / area;
                     }
-                </script>
-            
-            </body>
+
+                    var resultDiv = document.getElementById('results20');
+                    resultDiv.innerHTML = '';
+
+                    if (!isNaN(intensity)) {
+                        resultDiv.innerHTML += "<div>Intensidad de Onda (I): " + intensity.toFixed(2) + " W/m²</div>";
+                    }
+                    if (!isNaN(power)) {
+                        resultDiv.innerHTML += "<div>Potencia Total (P): " + power.toFixed(2) + " vatios</div>";
+                    }
+                    if (!isNaN(area)) {
+                        resultDiv.innerHTML += "<div>Área de Transmisión (A): " + area.toFixed(2) + " metros cuadrados</div>";
+                    }
+                }
+            </script>
         </div>
 
 
@@ -1579,22 +1518,42 @@
                     <div class="info-price">
                         <h2>Referencias</h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores minus praesentium minima
-                            velit, magni debitis voluptas excepturi, quasi accusamus dolor reprehenderit doloribus
-                            repellat, dignissimos voluptatibus facere sit fugit. Exercitationem, debitis.
+                            Generalidades, •. Movimiento Ondulatorio, & a:, C. E. (s/f). Tema 9.- MOVIMIENTO ONDULATORIO
+                            (RESUMEN). Rua.ua.es. Recuperado el 6 de abril de 2024, de
+                            https://rua.ua.es/dspace/bitstream/10045/11459/1/RESUMEN_TEMA_09.pdf <br>
+
+                            Movimiento Ondulatorio. (s/f). Ipn.mx. Recuperado el 6 de abril de 2024, de
+                            https://www.academico.cecyt7.ipn.mx/recursos/basicas/fisica/fisica4/unidad2/ondas.htm <br>
+                            (S/f-d). Www.uv.mx. Recuperado el 6 de abril de 2024, de
+                            https://www.uv.mx/personal/aherrera/files/2014/05/D1.-Movimiento-ondulatorio.pdf <br>
+                            Halliday, D., Resnick, R., y Walker, J. (2014). Fundamentos de Física (9na ed.). Pearson
+                            Educación. <br>
+
+                            Serway, R. A., y Jewett, J. W. (2014). Física para Ciencias e Ingeniería (9na ed.).
+                            Brooks/Cole Cengage Learning. <br>
+                            Enseñanza del movimiento ondulatorio en Bachillerato. (s.f.). Consultado el 5 de abril de
+                            2024 en:
+                            https://reunir.unir.net/bitstream/handle/123456789/6853/AUZMENDI%20ARKARAZO%20GARAZI.pdf?isAllowed=y&sequence=1 <br>
+                            Esfuerzo y deformación. 3dcadportal.com. Recuperado el 5 de abril de 2024 de
+                            https://www.3dcadportal.com/esfuerzo-y-deformacion.html <br>
+                            Tema 3.1. Esfuerzos. Universidad de Cantabria. Recuperado el 5 de abril de 2024 de
+                            https://ocw.unican.es/pluginfile.php/2899/course/section/2824/Tema%203.1.%20Esfuerzos_REVISADO%20OCW.pdf <br>
+                            Halliday, D., Resnick, R., & Walker, J. (2014). Fundamentals of Physics. John Wiley & Sons. <br>
+                            Serway, R. A., & Jewett, J. W. (2014). Physics for Scientists and Engineers. Cengage
+                            Learning. <br>
+                            Sanden van der Meijer. (Sin fecha). "Deformación plástica". <br>
+                            Becerra, J. A. P. (s/f). Deformación y fragmentación. Intef.es. Recuperado el 6 de abril de
+                            2024, de
+                            http://descargas.intef.es/recursos_educativos/It_didac/CCNN/5/06/04_cambios_fisicos_irreversibles/deformacin_y_fragmentacin.html <br>
+                            Halliday, D., Resnick, R., & Walker, J. (2014). Fundamentals of physics (10th ed.). Hoboken,
+                            NJ: Wiley. <br>
+                            Serway, R. A., & Jewett, J. W. (2014). Physics for scientists and engineers (9th ed.).
+                            Boston, MA: Brooks/Cole, Cengage Learning.
+
                         </p>
                     </div>
                 </div>
                 <hr>
-                <div class="enlaces">
-                    <h3>UPQ.</h3>
-                    <!--<div class="enlace">
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">lorem</a></li>
-                    </div>-->
-                </div>
             </div>
         </div>
     </footer>

@@ -5,7 +5,6 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    text-transform: capitalize;
     list-style: none;
     font-family: "Montserrat", sans-serif;
 }
@@ -145,8 +144,10 @@ header{
 }
 
 .service img {
-    margin-top: -50px;
-    align-self: center; /* Centrar la imagen verticalmente */
+    max-width: 100%; /* La imagen nunca superará el ancho del contenedor */
+    max-height: 150px; /* Establece una altura máxima para la imagen */
+    margin-top: -50px; /* Ajusta el margen superior si es necesario */
+    align-self: center; /* Centra la imagen verticalmente */
 }
 
 .service h3 {
@@ -237,25 +238,31 @@ header{
     background-color: #8650d7;
 }
 
-footer{
-    padding: 200px 0px 30px 0px;
+footer {
+    padding: 300px 10px 30px 70px;
     background-image: url(images/footer.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.info-content{
+
+.info-content {
     display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100%; /* Ocupar el 100% del espacio disponible verticalmente */
 }
 
-.info-price{
+.info-price {
     padding: 35px;
     text-align: center;
     background-color: #f5f5f5;
-    box-shadow: 0px 0px 25px rgba(0, 0,0, 0.3);
-    margin: 0px 150px 0px 0px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
     color: #0e0e0e;
+    max-width: 1100px; /* Ancho máximo del contenido */
+    width: 100%; /* Ocupar el ancho máximo disponible */
+    margin: 0 auto; /* Centrar el elemento dentro de su contenedor */
 }
 
 .info-price h2{
@@ -413,4 +420,14 @@ hr{
     .enlace{
         flex-direction: column;
     }
+}
+
+/*intensidad del sonido*/
+#soundIntensityCalculator {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
 }

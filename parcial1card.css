@@ -171,6 +171,73 @@
     transform: perspective(600px) rotateX(360deg);
 }
 
+/*cardEl*/
+.cardEl{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.cardEl .faceEl{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardEl .frontEl{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardEl .frontEl img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardEl .frontEl h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardEl .backEl{
+    transform: perspective(600px) rotateX(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardEl .backEl p{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.cardEl:hover .frontEl{
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.cardEl:hover .backEl{
+    transform: perspective(600px) rotateX(360deg);
+}
+
 
 .portfolio-3 h3{
     font-size: 35px;
