@@ -1,0 +1,1488 @@
+.card-container {
+    display: flex; /* Coloca las cartas en línea horizontal */
+    justify-content: space-around; /* Distribuye el espacio entre las cartas */
+    flex-wrap: wrap; /* Permite que las cartas se envuelvan si no caben en una línea */
+    margin-top: 50px; /* Espacio superior entre el contenedor principal y las nuevas cartas */
+}
+
+/* Estilos para las cartas dentro del contenedor */
+.card-container .card {
+    width: 500px; /* Ancho de cada carta */
+    height: 300px; /* Altura de cada carta */
+    margin-bottom: 30px; /* Espacio inferior entre cada carta */
+    /* Otros estilos de las cartas según sea necesario */
+}
+
+
+.card{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back p{
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*tipo part sub card */
+.cardTipo{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.cardTipo .faceTipo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardTipo .frontTipo{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardTipo .frontTipo img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardTipo .frontTipo h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardTipo .backTipo{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardTipo .backTipo p{
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cardTipo:hover .frontTipo{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardTipo:hover .backTipo{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+
+/*card clasificacion*/
+.cardClas{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.cardClas .faceClas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardClas .frontClas{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardClas .frontClas img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardClas .frontClas h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardClas .backClas{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardClas .backClas p{
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cardClas:hover .frontClas{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardClas:hover .backClas{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Momento Y Posición*/
+.cardMom{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardMom .faceMom{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardMom .frontMom{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMom .frontMom img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardMom .frontMom h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardMom .backMom{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMom .backMom p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardMom:hover .frontMom{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardMom:hover .backMom{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Energía Y Tiempo*/
+.cardEner{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardEner .faceEner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardEner .frontEner{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardEner .frontEner img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardEner .frontEner h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardEner .backEner{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardEner .backEner p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardEner:hover .frontEner{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardEner:hover .backEner{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+
+/*card2*/
+
+.portfolio-3 {
+    width: 50%; /* Reducir el ancho del div portfolio-2 */
+    margin-right: 20px; /* Agregar margen a la derecha para separar del card */
+    text-align: left;
+}
+
+.portfolio-3 p {
+    /* Ajustar el tamaño del texto para ocupar menos espacio */
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.portfolio-4 {
+    width: 50%; /* Reducir el ancho del div portfolio-2 */
+    margin-right: 20px; /* Agregar margen a la derecha para separar del card */
+    text-align: right;
+}
+
+.portfolio-4 p {
+    /* Ajustar el tamaño del texto para ocupar menos espacio */
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.card2{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.card2 .face2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card2 .front2{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .front2 img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 .front2 h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.card2 .back2{
+    transform: perspective(600px) rotateX(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card2 .back2 p{
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.card2:hover .front2{
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.card2:hover .back2{
+    transform: perspective(600px) rotateX(360deg);
+}
+
+
+.portfolio-3 h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.portfolio-4 h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card3{
+    position: relative;
+    width: 500px;
+    height: 260px;
+    margin: 20px;
+}
+
+.card3 .face3{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card3 .front3{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card3 .front3 img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card3 .front3 h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.card3 .back3{
+    transform: perspective(600px) rotateX(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card3 .back3 p{
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.card3:hover .front3{
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.card3:hover .back3{
+    transform: perspective(600px) rotateX(360deg);
+}
+
+
+/*card particulas*/
+/*boson*/
+.cardBos{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardBos .faceBos{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardBos .frontBos{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardBos .frontBos img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBos .frontBos h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardBos .backBos{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardBos .backBos p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardBos:hover .frontBos{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardBos:hover .backBos{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Foton*/
+.cardFot{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardFot .faceFot{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardFot .frontFot{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardFot .frontFot img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardFot .frontFot h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardFot .backFot{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardFot .backFot p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardFot:hover .frontFot{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardFot:hover .backFot{
+    transform: perspective(600px) rotateY(360deg);
+}
+/*boson W*/
+.cardW{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardW .faceW{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardW .frontW{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardW .frontW img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardW .frontW h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardW .backW{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardW .backW p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardW:hover .frontW{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardW:hover .backW{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Z*/
+.cardZ{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardZ .faceZ{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardZ .frontZ{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardZ .frontZ img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardZ .frontZ h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardZ .backZ{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardZ .backZ p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardZ:hover .frontZ{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardZ:hover .backZ{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Gluón*/
+.cardGluón{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardGluón .faceGluón{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardGluón .frontGluón{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardGluón .frontGluón img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardGluón .frontGluón h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardGluón .backGluón{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardGluón .backGluón p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardGluón:hover .frontGluón{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardGluón:hover .backGluón{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Higgs*/
+.cardHiggs{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardHiggs .faceHiggs{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardHiggs .frontHiggs{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardHiggs .frontHiggs img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardHiggs .frontHiggs h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardHiggs .backHiggs{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardHiggs .backHiggs p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardHiggs:hover .frontHiggs{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardHiggs:hover .backHiggs{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+
+/*Fermiones*/
+.cardFermiones{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardFermiones .faceFermiones{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardFermiones .frontFermiones{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardFermiones .frontFermiones img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardFermiones .frontFermiones h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardFermiones .backFermiones{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardFermiones .backFermiones p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardFermiones:hover .frontFermiones{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardFermiones:hover .backFermiones{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Leptones*/
+.cardLeptones{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardLeptones .faceLeptones{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardLeptones .frontLeptones{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardLeptones .frontLeptones img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardLeptones .frontLeptones h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardLeptones .backLeptones{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardLeptones .backLeptones p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardLeptones:hover .frontLeptones{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardLeptones:hover .backLeptones{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Electrón*/
+.cardElectrón{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardElectrón .faceElectrón{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardElectrón .frontElectrón{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardElectrón .frontElectrón img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardElectrón .frontElectrón h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardElectrón .backElectrón{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardElectrón .backElectrón p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardElectrón:hover .frontElectrón{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardElectrón:hover .backElectrón{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Protón*/
+.cardProtón{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardProtón .faceProtón{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardProtón .frontProtón{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardProtón .frontProtón img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardProtón .frontProtón h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardProtón .backProtón{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardProtón .backProtón p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardProtón:hover .frontProtón{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardProtón:hover .backProtón{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Neutrón*/
+
+.cardNeutrón{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardNeutrón .faceNeutrón{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardNeutrón .frontNeutrón{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardNeutrón .frontNeutrón img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardNeutrón .frontNeutrón h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardNeutrón .backNeutrón{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardNeutrón .backNeutrón p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardNeutrón:hover .frontNeutrón{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardNeutrón:hover .backNeutrón{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Muon*/
+.cardMuon{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardMuon .faceMuon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardMuon .frontMuon{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMuon .frontMuon img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardMuon .frontMuon h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardMuon .backMuon{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMuon .backMuon p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardMuon:hover .frontMuon{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardMuon:hover .backMuon{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*Tauón*/
+.cardTauón{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardTauón .faceTauón{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardTauón .frontTauón{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardTauón .frontTauón img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardTauón .frontTauón h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardTauón .backTauón{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardTauón .backTauón p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardTauón:hover .frontTauón{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardTauón:hover .backTauón{
+    transform: perspective(600px) rotateY(360deg);
+}
+/*Muon
+.cardMuon{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
+
+.cardMuon .faceMuon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.cardMuon .frontMuon{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMuon .frontMuon img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardMuon .frontMuon h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 29%;
+    line-height: 300%;
+    color: #ffffff;
+    background: rgba(0, 0,0, 0.4);
+    text-align: center;
+}
+
+.cardMuon .backMuon{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.cardMuon .backMuon p{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cardMuon:hover .frontMuon{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.cardMuon:hover .backMuon{
+    transform: perspective(600px) rotateY(360deg);
+}
+*/

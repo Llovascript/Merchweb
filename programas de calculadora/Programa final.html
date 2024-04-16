@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Onda Acústica</title>
+</head>
+<body>
+
+<script>
+  function calcularOndaAcustica() {
+    // Solicitar la frecuencia como entrada
+    var frecuencia = parseFloat(prompt("Ingrese la frecuencia de la onda acústica en Hz:"));
+
+    // Calcular longitud de onda (X)
+    var velocidadSonido = 343; // m/s (velocidad del sonido en condiciones estándar)
+    var longitudOnda = velocidadSonido / frecuencia;
+
+    // Calcular periodo (T)
+    var periodo = 1 / frecuencia;
+
+    // Calcular velocidad angular (w)
+    var velocidadAngular = 2 * Math.PI * frecuencia;
+
+    // Calcular número de onda (k)
+    var numeroOnda = 2 * Math.PI / longitudOnda;
+
+    // Amplitud de la onda
+    var amplitud = 0.02 * Math.sin(velocidadAngular);
+
+    // Ecuación de la onda acústica en función del tiempo
+    var ecuacionOnda = "A * sin(w * t)";
+    var resultado = "Longitud de onda (X): " + longitudOnda.toFixed(2) + " m\n" +
+                    "Periodo (T): " + periodo.toFixed(4) + " s\n" +
+                    "Velocidad angular (w): " + velocidadAngular.toFixed(2) + " rad/s\n" +
+                    "Número de onda (k): " + numeroOnda.toFixed(2) + " rad/m\n" +
+                    "Amplitud de la onda: " + amplitud;
+
+    // Mostrar resultado en un alert
+    alert(resultado);
+  }
+
+  // Llamar a la función cuando se carga la página
+  calcularOndaAcustica();
+</script>
+
+</body>
+</html>

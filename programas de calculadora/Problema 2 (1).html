@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Rapidez del Sonido</title>
+</head>
+<body>
+
+  <h1>Calculadora de Rapidez del Sonido</h1>
+ 
+
+  <label for="temperatura">Temperatura del gas (°C): </label>
+  <input type="number" id="temperatura" placeholder="Ingrese la temperatura">
+
+  <br>
+
+  <label for="masaMolecular">Masa molecular del gas: </label>
+  <input type="number" id="masaMolecular" placeholder="Ingrese la masa molecular">
+
+  <br>
+
+ 
+
+  <br>
+
+  <button onclick="calcularRapidezSonido()">Calcular Rapidez del Sonido</button>
+
+  <script>
+    function calcularRapidezSonido() {
+      // Obtener los valores ingresados por el usuario
+      const constanteAdiabatica=1.4;
+      const temperatura = parseFloat(document.getElementById('temperatura').value);
+      const masaMolecular = parseFloat(document.getElementById('masaMolecular').value);
+     
+
+      // Convertir la temperatura a kelvin
+      const temperaturaKelvin = temperatura + 273;
+
+      // Calcular la rapidez del sonido
+      const constanteUniversalGases = 8.314;
+      const masaMolecularKg = masaMolecular * 1e-3;
+      const rapidezSonido = Math.sqrt(constanteAdiabatica * constanteUniversalGases * temperaturaKelvin / masaMolecularKg);
+
+      // Mostrar el resultado en un alert
+      alert("La rapidez del sonido es:"+ rapidezSonido.toFixed(4)+" m/s");
+    }
+  </script>
+
+</body>
+</html>

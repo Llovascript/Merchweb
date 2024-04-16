@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapidez del Sonido</title>
+</head>
+<body>
+    <p>¿Cuál es la rapidez del sonido en el aire a temperatura ambiente (20 °C)?</p>
+
+    <label for="temperature">Ingrese la temperatura en °C:</label>
+    <input type="number" id="temperature" placeholder="Ejemplo: 20">
+
+    <button onclick="calcularRapidez()">Resolver</button>
+
+    <script>
+        function calcularRapidez() {
+            // Constantes físicas para el aire
+            var gamma = 1.4; // Razón de calores específicos para el aire
+            var R = 287.05; // Constante específica de los gases para el aire en J/(kg·K)
+
+            // Obtener la temperatura ingresada por el usuario
+            var temperaturaCelsius = parseFloat(document.getElementById("temperature").value);
+
+            // Calcular la temperatura absoluta en Kelvin
+            var temperaturaKelvin = temperaturaCelsius + 273.15;
+
+            // Calcular la rapidez del sonido usando la ecuación (9.7)
+            var rapidezSonido = Math.sqrt(gamma * R * temperaturaKelvin);
+
+            // Mostrar el resultado en un alert
+            alert("La rapidez del sonido a " + temperaturaCelsius + " °C es aproximadamente " + rapidezSonido.toFixed(2) + " m/s");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Intensidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        label {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <label for="presion">Presión (Pascals):</label>
+    <input type="number" id="presion" required>
+    <label for="velocidadAngular">Velocidad Angular (rad/s):</label>
+    <input type="number" id="velocidadAngular" required>
+    <label for="amplitud">Amplitud (metros):</label>
+    <input type="number" id="amplitud" required>
+    <label for="velocidad">Velocidad (m/s):</label>
+    <input type="number" id="velocidad" required>
+    <button onclick="calcularIntensidad()">Calcular Intensidad</button>
+
+    <script>
+        function calcularIntensidad() {
+            // Obtener valores
+            const presion = parseFloat(document.getElementById('presion').value);
+            const velocidadAngular = parseFloat(document.getElementById('velocidadAngular').value);
+            const amplitud = parseFloat(document.getElementById('amplitud').value);
+            const velocidad = parseFloat(document.getElementById('velocidad').value);
+
+            // Hipotética fórmula para calcular la intensidad
+            const intensidad = presion * velocidadAngular * amplitud * velocidad; // Fórmula hipotética
+
+            // Mostrar resultado
+            alert(`La intensidad calculada es: ${intensidad.toFixed(2)} unidades.`);
+        }
+    </script>
+</body>
+</html>

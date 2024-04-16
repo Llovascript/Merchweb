@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocidad del Sonido en un Gas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        margin-right: 10px;
+    }
+    input, button {
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+<h2>Programa 1: Cálculo de la Velocidad del Sonido en un Gas</h2>
+
+<div class="form-group">
+    <label for="moduloYoung">Módulo de Young (N/m²):</label>
+    <input type="number" id="moduloYoung" required>
+</div>
+<div class="form-group">
+    <label for="presion">Presión (Pascales):</label>
+    <input type="number" id="presion" required>
+</div>
+<button onclick="calcularVelocidadSonido()">Calcular</button>
+
+<h2>Programa 2: Cálculo de la Velocidad del Sonido en un Gas con Temperatura y Masa</h2>
+
+<div class="form-group">
+    <label for="moduloYoung2">Módulo de Young (N/m²):</label>
+    <input type="number" id="moduloYoung2" required>
+</div>
+<div class="form-group">
+    <label for="temperatura">Temperatura (Kelvin):</label>
+    <input type="number" id="temperatura" required>
+</div>
+<div class="form-group">
+    <label for="masa">Masa (Kilogramo/mol):</label>
+    <input type="number" id="masa" required>
+</div>
+<button onclick="calcularVelocidadSonidoTemperatura()">Calcular</button>
+
+<script>
+function calcularVelocidadSonido() {
+    const moduloYoung = document.getElementById('moduloYoung').value;
+    const presion = document.getElementById('presion').value;
+
+    if (moduloYoung > 0 && presion > 0) {
+        const velocidadSonido = Math.sqrt(moduloYoung / presion);
+        alert(`La velocidad del sonido en el gas es: ${velocidadSonido.toFixed(2)} m/s`);
+    } else {
+        alert('Por favor, ingrese valores válidos para ambos campos.');
+    }
+}
+
+function calcularVelocidadSonidoTemperatura() {
+    const moduloYoung = document.getElementById('moduloYoung2').value;
+    const temperatura = document.getElementById('temperatura').value;
+    const masa = document.getElementById('masa').value;
+
+    if (temperatura > 0 && masa > 0 && moduloYoung > 0) {
+        const constante = 1.4;
+        const R = 8.314;
+        const velocidadSonido = Math.sqrt((constante * R * temperatura) / masa);
+        alert(`La velocidad del sonido en el gas es: ${velocidadSonido.toFixed(2)} m/s`);
+    } else {
+        alert('Por favor, ingrese valores válidos para todos los campos.');
+    }
+}
+</script>
+</body>
+</html>

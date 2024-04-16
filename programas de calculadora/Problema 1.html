@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Rapidez del Sonido</title>
+</head>
+<body>
+
+  <h2>Calculadora de Rapidez del Sonido en una varilla</h2>
+ 
+
+  <label for="moduloYoung">Módulo de Young (Y) en N/m^2:</label>
+  <input type="text" id="moduloYoung" placeholder="Ingrese el valor del módulo young" />
+
+  <label for="densidadAluminio">Densidad del material (ρ) en kg/m^3:</label>
+  <input type="text" id="densidadAluminio" placeholder="Ingrese el valor del material" />
+
+  <button onclick="calcularRapidez()">Calcular Rapidez del Sonido</button>
+
+  <script>
+    function calcularRapidez() {
+      // Obtener los valores de los inputs
+      var moduloYoung = parseFloat(document.getElementById('moduloYoung').value);
+      var densidadAluminio = parseFloat(document.getElementById('densidadAluminio').value);
+
+      // Calcular la rapidez del sonido
+      var rapidezSonido = Math.sqrt(moduloYoung / densidadAluminio);
+
+      // Mostrar el resultado en un alert
+      alert('La rapidez del sonido en la varilla  es: ' + rapidezSonido.toFixed(4) + ' m/s');
+    }
+  </script>
+
+</body>
+</html>

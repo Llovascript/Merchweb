@@ -1,0 +1,45 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    display: flex;
+    background-color: #333d53;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topbar a {
+    position: relative;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 20px;
+    transition: .5s;
+}
+
+.topbar a:hover {
+    color: rgb(100, 135, 253);
+}
+.topbar a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-bottom: 2px solid rgb(100, 135, 253);
+    border-radius: 15px;
+    transform: scale(0) translateY(50px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.topbar a:hover span {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}

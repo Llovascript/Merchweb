@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Intensidad de Onda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora de Intensidad de Onda</h2>
+
+    <label for="amplitud">Amplitud:</label>
+    <input type="number" id="amplitud" placeholder="Ingrese la amplitud">
+
+    <label for="frecuencia">Frecuencia:</label>
+    <input type="number" id="frecuencia" placeholder="Ingrese la frecuencia">
+
+    <label for="longitudOnda">Longitud de Onda:</label>
+    <input type="number" id="longitudOnda" placeholder="Ingrese la longitud de onda">
+
+    <label for="densidad">Densidad:</label>
+    <input type="number" id="densidad" placeholder="Ingrese la densidad">
+
+    <button onclick="calcularIntensidad()">Resolver</button>
+
+    <script>
+        function calcularIntensidad() {
+            // Obtener los valores de los inputs
+            var amplitud = parseFloat(document.getElementById('amplitud').value);
+            var frecuencia = parseFloat(document.getElementById('frecuencia').value);
+            var longitudOnda = parseFloat(document.getElementById('longitudOnda').value);
+            var densidad = parseFloat(document.getElementById('densidad').value);
+
+            // Verificar si los valores son válidos
+            if (isNaN(amplitud) || isNaN(frecuencia) || isNaN(longitudOnda) || isNaN(densidad)) {
+                alert('Por favor, ingrese valores numéricos válidos.');
+                return;
+            }
+
+            // Calcular las intensidades
+            var intensidad1 = 0.5 * densidad * Math.pow(amplitud * frecuencia, 2);
+            var intensidad2 = 0.5 * densidad * Math.pow((2 * Math.PI * frecuencia * amplitud), 2);
+            var intensidad3 = 0.5 * densidad * Math.pow((2 * Math.PI * frecuencia * amplitud / longitudOnda), 2);
+            var intensidad4 = 0.5 * densidad * Math.pow((2 * Math.PI * frecuencia), 2);
+
+            // Mostrar el resultado en un alert
+            alert('Intensidad 1: ' + intensidad1 + '\nIntensidad 2: ' + intensidad2 + '\nIntensidad 3: ' + intensidad3 + '\nIntensidad 4: ' + intensidad4);
+        }
+    </script>
+
+</body>
+</html>

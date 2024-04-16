@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(fondo.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.header::before{
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.4),transparent);
+}
+
+.logo{
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar a{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover{
+    color: #152e64;
+}
+
+.card{
+    position: relative;
+    width: 400px;
+    height: 420px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.7);
+    display: flex;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+.card:hover{
+    width: 800px;
+}
+
+.card .imgBx{
+    position: relative;
+    min-width: 400px;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card .imgBx img{
+    max-width: 300px;
+    max-height: 300px;
+    transition: 0.5s ease-in-out;
+}
+
+.card .details{
+    position: absolute;
+    left: 0;
+    min-width: 400px;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    padding: 20px;
+    flex-direction: column;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .details{
+    left: 400px;
+}
+
+.card .details::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.card .details h3{
+    font-size: 1.3em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1em;
+}
+
+.card .details h3 span{
+    font-size: 0.6em;
+    font-weight: 300;
+    text-transform: none;
+    opacity: 0.85;
+}
+
+.card .details h4{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.6em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1em;
+}
+
+.card .details p{
+    color: #ffffff;
+    opacity: 0.80;
+    font-size: 0.8em;
+}
+
+.card .details .size{
+    display: flex;
+    gap: 10px;
+}
+
+.card2{
+    position: relative;
+    width: 400px;
+    height: 420px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.7);
+    display: flex;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+.card2:hover{
+    width: 800px;
+}
+
+.card2 .imgBx2{
+    position: relative;
+    min-width: 400px;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card2 .imgBx2 img{
+    max-width: 300px;
+    max-height: 300px;
+    transition: 0.5s ease-in-out;
+}
+
+.card2 .details2{
+    position: absolute;
+    left: 0;
+    min-width: 400px;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    padding: 20px;
+    flex-direction: column;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+
+.card2:hover .details2{
+    left: 400px;
+}
+
+.card2 .details2::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.card2 .details2 h3{
+    font-size: 1.3em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1em;
+}
+
+.card2 .details2 h3 span{
+    font-size: 0.6em;
+    font-weight: 300;
+    text-transform: none;
+    opacity: 0.85;
+}
+
+.card2 .details2 h4{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.6em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1em;
+}
+
+.card2 .details2 p{
+    color: #ffffff;
+    opacity: 0.80;
+    font-size: 0.8em;
+}
+
+.card2 .details2 .size{
+    display: flex;
+    gap: 10px;
+}
+
+.spacer {
+    height: 200px;
+}
+

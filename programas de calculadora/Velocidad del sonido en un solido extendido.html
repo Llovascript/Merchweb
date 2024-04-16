@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Velocidad del Sonido en un Sólido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Velocidad del Sonido en un Sólido Extendido</h1>
+
+    <label for="moduloYoung">Módulo de Young del material (Pa):</label>
+    <input type="number" id="moduloYoung" placeholder="Ingrese el módulo de Young">
+
+    <label for="densidad">Densidad del material (kg/m³):</label>
+    <input type="number" id="densidad" placeholder="Ingrese la densidad">
+
+    <button onclick="calcularVelocidad()">Calcular Velocidad del Sonido</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularVelocidad() {
+            // Obtener valores de los inputs
+            var moduloYoung = parseFloat(document.getElementById('moduloYoung').value);
+            var densidad = parseFloat(document.getElementById('densidad').value);
+
+            // Calcular la velocidad del sonido en el sólido
+            var velocidadSonido = Math.sqrt(moduloYoung / densidad);
+
+            // Mostrar el resultado
+            document.getElementById('resultado').innerHTML = "La velocidad del sonido en el sólido es " + velocidadSonido.toFixed(2) + " m/s.";
+        }
+    </script>
+</body>
+</html>

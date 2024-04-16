@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potencia Instantánea Máxima</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Calculadora de Potencia Instantánea Máxima</h1>
+  <div class="input-container">
+    <label for="tension">Tensión:</label>
+    <input type="number" id="tension">
+  </div>
+  <div class="input-container">
+    <label for="frecuencia">Frecuencia Angular:</label>
+    <input type="number" id="frecuencia">
+  </div>
+  <div class="input-container">
+    <label for="amplitud">Amplitud:</label>
+    <input type="number" id="amplitud">
+  </div>
+  <div class="input-container">
+    <label for="densidad">Densidad de Masa Lineal:</label>
+    <input type="number" id="densidad">
+  </div>
+  <button onclick="calcularPotenciaMaxima()">Calcular</button>
+
+  <script >
+    function calcularPotenciaMaxima() {
+        var tension = parseFloat(document.getElementById("tension").value);
+        var frecuenciaAngular = parseFloat(document.getElementById("frecuencia").value);
+        var amplitud = parseFloat(document.getElementById("amplitud").value);
+        var densidadMasaLineal = parseFloat(document.getElementById("densidad").value);
+      
+        var potenciaMaxima = Math.sqrt(densidadMasaLineal * tension * Math.pow(frecuenciaAngular*Math.PI, 2) * Math.pow(amplitud, 2));
+      
+        alert("La potencia instantánea máxima es: " + potenciaMaxima);
+      }
+      
+  </script>
+</body>
+</html>

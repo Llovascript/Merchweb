@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Longitud de Onda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="numeroDeOnda">Número de onda (1/m):</label>
+        <input type="number" id="numeroDeOnda" placeholder="Introduce el número de onda" step="any" required>
+        
+        <button onclick="calcularLongitudDeOnda()">Calcular Longitud de Onda</button>
+    </div>
+
+    <script>
+        function calcularLongitudDeOnda() {
+            // Obtener el valor del número de onda
+            const numeroDeOnda = parseFloat(document.getElementById('numeroDeOnda').value);
+
+            // Validar que el número de onda sea mayor a cero
+            if (numeroDeOnda <= 0) {
+                alert("Por favor, introduce un valor mayor a cero para el número de onda.");
+                return;
+            }
+
+            // Calcular la longitud de onda
+            const longitudDeOnda = 1 / numeroDeOnda;
+
+            // Mostrar el resultado
+            alert(`La longitud de onda es: ${longitudDeOnda.toFixed(4)} metros.`);
+        }
+    </script>
+</body>
+</html>

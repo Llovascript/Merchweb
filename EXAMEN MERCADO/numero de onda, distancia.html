@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Número de Onda y Distancia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            padding: 8px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Número de Onda y Distancia</h2>
+    
+    <div class="form-group">
+        <label for="numeroOnda">Número de onda (k en rad/m) - Opcional:</label>
+        <input type="number" id="numeroOnda" step="any" placeholder="Introduce el número de onda">
+    </div>
+    <div class="form-group">
+        <label for="distancia">Distancia/Longitud de onda (λ en metros) - Opcional:</label>
+        <input type="number" id="distancia" step="any" placeholder="Introduce la distancia o longitud de onda">
+    </div>
+    <button onclick="calcularValores()">Calcular</button>
+
+    <script>
+        function calcularValores() {
+            const k = parseFloat(document.getElementById('numeroOnda').value);
+            const lambda = parseFloat(document.getElementById('distancia').value);
+
+            if (!isNaN(k) && isNaN(lambda)) {
+                // Calcular distancia/longitud de onda desde el número de onda
+                const distanciaCalculada = 2 * Math.PI / k;
+                alert(`Distancia/Longitud de onda: ${distanciaCalculada.toFixed(4)} m`);
+            } else if (isNaN(k) && !isNaN(lambda)) {
+                // Calcular número de onda desde la distancia/longitud de onda
+                const numeroOndaCalculado = 2 * Math.PI / lambda;
+                alert(`Número de onda: ${numeroOndaCalculado.toFixed(4)} rad/m`);
+            } else {
+                alert("Por favor, introduce solo uno de los valores para calcular el otro.");
+            }
+        }
+    </script>
+</body>
+</html>

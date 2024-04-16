@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despejes de Frecuencia y Tensión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            padding: 8px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Frecuencia Fundamental y Tensión</h2>
+
+    <div class="form-group">
+        <label for="mu">Densidad de masa lineal (μ en kg/m):</label>
+        <input type="number" id="mu" step="any" required>
+    </div>
+    <div class="form-group">
+        <label for="longitud">Longitud del cuerpo (L en m):</label>
+        <input type="number" id="longitud" step="any" required>
+    </div>
+    <div class="form-group">
+        <label for="tension">Tensión (T en N) - Opcional:</label>
+        <input type="number" id="tension" step="any">
+    </div>
+    <div class="form-group">
+        <label for="frecuencia">Frecuencia Fundamental (f1 en Hz) - Opcional:</label>
+        <input type="number" id="frecuencia" step="any">
+    </div>
+    <button onclick="calcularFrecuenciaYTension()">Calcular</button>
+
+    <script>
+        function calcularFrecuenciaYTension() {
+            const mu = parseFloat(document.getElementById('mu').value);
+            const L = parseFloat(document.getElementById('longitud').value);
+            let T = parseFloat(document.getElementById('tension').value);
+            let f1 = parseFloat(document.getElementById('frecuencia').value);
+
+            if (!T && f1) {
+                // Calcular tensión basada en frecuencia
+                T = (f1 ** 2) * (2 * L) ** 2 * mu;
+                alert(`Tensión calculada: ${T.toFixed(4)} N`);
+            } else if (T && !f1) {
+                // Calcular frecuencia basada en tensión
+                f1 = (1 / (2 * L)) * Math.sqrt(T / mu);
+                alert(`Frecuencia Fundamental calculada: ${f1.toFixed(4)} Hz`);
+            } else {
+                alert("Por favor, proporciona la Tensión o la Frecuencia Fundamental para calcular la otra.");
+            }
+        }
+    </script>
+</body>
+</html>

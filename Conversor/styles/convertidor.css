@@ -1,0 +1,66 @@
+/* CONVERTIDOR */
+.convertidor .convertidor-title {
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+}
+/* CONVERTIDOR DE LONGITUD */
+.convertidor-longitud {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.convertidor-longitud .displayResult {
+    display: none;
+}
+/* CONVERTIDOR DE MASA */
+.convertidor-masa {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.convertidor-masa .displayResult {
+    display: none;
+}
+/* CONVERTIDOR DE TIEMPO */
+.convertidor-tiempo {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.convertidor-tiempo .displayResult {
+    display: none;
+}
+/* CONVERTIDOR DE TEMPERATURA */
+.convertidor-temperatura {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.convertidor-temperatura .displayResult {
+    display: none;
+}
+
+@media(max-width:550px) {
+    .convertidor-longitud {
+        width: 100%;
+    }
+    .convertidor-masa {
+        width: 100%;
+    }
+    .convertidor-tiempo {
+        width: 100%;
+    }
+    .convertidor-temperatura {
+        width: 100%;
+    }
+}

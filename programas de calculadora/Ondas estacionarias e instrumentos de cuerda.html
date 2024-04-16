@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrabajo gigante</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    text-align: center;
+  }
+  input {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contrabajo gigante</h2>
+  <label for="longitud">Longitud de la cuerda (m):</label><br>
+  <input type="number" id="longitud" step="0.01" min="0"><br>
+  <label for="densidad">Densidad lineal de masa (g/m):</label><br>
+  <input type="number" id="densidad" step="0.01" min="0"><br>
+  <label for="frecuencia">Frecuencia fundamental (Hz):</label><br>
+  <input type="number" id="frecuencia" step="0.01" min="0"><br>
+  <button onclick="calcular()">Calcular</button>
+</div>
+
+<script>
+  function calcular() {
+    var longitud = parseFloat(document.getElementById('longitud').value);
+    var densidad = parseFloat(document.getElementById('densidad').value);
+    var frecuencia = parseFloat(document.getElementById('frecuencia').value);
+
+    // Calculando la tensión de la cuerda
+    var tension = (densidad / 1000) * 9.81 * longitud; // Conversión de g/m a kg/m^3
+
+    // Calculando la frecuencia y longitud de onda del segundo armónico
+    var frecuencia_arm = frecuencia * 2;
+    var longitud_onda_arm = (2 * longitud) / 2;
+
+    // Calculando la frecuencia y longitud de onda del segundo sobretono
+    var frecuencia_sob = frecuencia * 3;
+    var longitud_onda_sob = (2 * longitud) / 3;
+
+    // Mostrando los resultados
+    var mensaje = "a) Tensión de la cuerda: " + tension.toFixed(2) + " N\n";
+    mensaje += "b) Frecuencia del segundo armónico: " + frecuencia_arm.toFixed(2) + " Hz\n";
+    mensaje += "   Longitud de onda del segundo armónico: " + longitud_onda_arm.toFixed(2) + " m\n";
+    mensaje += "c) Frecuencia del segundo sobretono: " + frecuencia_sob.toFixed(2) + " Hz\n";
+    mensaje += "   Longitud de onda del segundo sobretono: " + longitud_onda_sob.toFixed(2) + " m";
+    
+    alert(mensaje);
+  }
+</script>
+
+</body>
+</html>

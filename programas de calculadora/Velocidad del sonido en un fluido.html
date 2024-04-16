@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Velocidad del Sonido</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculadora de Velocidad del Sonido en un Fluido</h2>
+
+  <label for="moduloVolumen">Módulo de comprensibilidad del fluido: </label>
+  <input type="number" id="moduloVolumen" placeholder="Ingrese el módulo de volumen" required><br>
+
+  <label for="moduloYoung">Ingresa la presión: </label>
+  <input type="number" id="moduloYoung" placeholder="Ingrese el módulo de Young" required><br>
+
+  <button onclick="calcularVelocidadSonido()">Calcular Velocidad del Sonido</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularVelocidadSonido() {
+      var moduloVolumen = parseFloat(document.getElementById('moduloVolumen').value);
+      var moduloYoung = parseFloat(document.getElementById('moduloYoung').value);
+
+      if (isNaN(moduloVolumen) || isNaN(moduloYoung)) {
+        alert('Por favor, ingrese valores válidos para el módulo de volumen y el módulo de Young.');
+        return;
+      }
+
+      var densidad = moduloVolumen / moduloYoung;
+      var velocidadSonido = Math.sqrt(densidad);
+
+      document.getElementById('resultado').innerHTML = 'La velocidad del sonido en el fluido es: ' + velocidadSonido.toFixed(2) + ' m/s';
+    }
+  </script>
+
+</body>
+</html>

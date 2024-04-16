@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potencia en una onda</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Potencia en una onda</h2>
+    <label for="tension">Tensión (N)</label>
+    <input type="number" id="tension">
+    <label for="densidad">Densidad de masa lineal (kg/m)</label>
+    <input type="number" id="densidad">
+    <label for="amplitud">Amplitud (m)</label>
+    <input type="number" id="amplitud">
+    <button onclick="calcularPotencia()">Calcular Potencia</button>
+</div>
+
+<script>
+function calcularPotencia() {
+    const tension = parseFloat(document.getElementById('tension').value);
+    const densidad = parseFloat(document.getElementById('densidad').value);
+    const amplitud = parseFloat(document.getElementById('amplitud').value);
+
+    const potenciaMaxima = 0.5 * (tension * tension) * (Math.PI * amplitud * amplitud) * Math.sqrt(1 / densidad);
+    const potenciaMedia = potenciaMaxima / 2;
+
+    alert("a) Potencia instantánea máxima: " + potenciaMaxima.toFixed(4) + " Watts\n\nb) Potencia media: " + potenciaMedia.toFixed(4) + " Watts");
+}
+</script>
+
+</body>
+</html>

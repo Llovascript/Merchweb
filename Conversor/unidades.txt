@@ -1,0 +1,44 @@
+Unidades de medida del Sistema Internacional (SI):
+    - Metro (m) para longitud
+    - Kilogramo (kg) para masa
+    - Segundo (s) para tiempo
+    - Amperio (A) para intensidad de corriente eléctrica
+    - Kelvin (K) para temperatura
+    - Mol (mol) para cantidad de sustancias
+    - Candela (cd) para intensidad luminosa
+
+Unidades de medida de longitud:
+    - Kilómetro (km)
+    - Hectómetro (hm)
+    - Decámetro (dam)
+    - Metro (m)
+    - Decímetro (dm)
+    - Centímetro (cm)
+    - Milímetro (mm)
+
+Unidades de medida de masa:
+    - Tonelada (t)
+    - Kilogramo (kg)
+    - Gramo (g)
+    - Miligramo (mg)
+    - Microgramo (µg)
+
+Unidades de medida de tiempo:
+    - Milenio
+    - Siglo
+    - Década
+    - Año 
+    - Mes 
+    - Semana 
+    - Día (d)
+    - Hora (h)
+    - Minuto (min)
+    - Segundo (s)
+
+Unidades de medida de intensidad de corriente eléctrica
+--
+
+Unidades de medida de temperatura
+    - Kelvin (K)
+    - Celsius (°C)
+    - Fahrenheit (°F)

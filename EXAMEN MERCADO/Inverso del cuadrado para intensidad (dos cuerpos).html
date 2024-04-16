@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Intensidades y Radios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        select, option {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Intensidad y Radio</h2>
+
+    <div class="form-group">
+        <label for="variable">Seleccione la variable a calcular:</label>
+        <select id="variable">
+            <option value="I2">Intensidad 2 (I2)</option>
+            <option value="I">Intensidad 1 (I)</option>
+          
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="intensidad1">Intensidad 1 (I en W/m²):</label>
+        <input type="number" id="intensidad1" >
+    </div>
+    <div class="form-group">
+        <label for="radio1">Radio 1 (R1 en metros):</label>
+        <input type="number" id="radio1" >
+    </div>
+    <div class="form-group">
+        <label for="radio2">Radio 2 (R2 en metros):</label>
+        <input type="number" id="radio2" >
+    </div>
+    <div class="form-group">
+        <label for="intensidad2">Intensidad 2 (I2 en W/m²):</label>
+        <input type="number" id="intensidad2" >
+    </div>
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        function calcular() {
+            const variable = document.getElementById('variable').value;
+            const I = parseFloat(document.getElementById('intensidad1').value) || null;
+            const R1 = parseFloat(document.getElementById('radio1').value) || null;
+            const R2 = parseFloat(document.getElementById('radio2').value) || null;
+            const I2 = parseFloat(document.getElementById('intensidad2').value) || null;
+
+            switch (variable) {
+                case 'I2':
+                    if(I !== null && R1 !== null && R2 !== null) {
+                        const resultado = I * (R1 / R2) ** 2;
+                        alert(`Intensidad 2 (I2) es: ${resultado.toFixed(4)} W/m²`);
+                    } else {
+                        alert('Por favor, complete los campos de Intensidad 1, Radio 1 y Radio 2.');
+                    }
+                    break;
+                case 'I':
+                    if(I2 !== null && R1 !== null && R2 !== null) {
+                        const resultado = I2 * (R2 / R1) ** 2;
+                        alert(`Intensidad 1 (I) es: ${resultado.toFixed(4)} W/m²`);
+                    } else {
+                        alert('Por favor, complete los campos de Intensidad 2, Radio 1 y Radio 2.');
+                    }
+                    break;
+                // Implementar casos para otras variables según sea necesario
+                default:
+                    alert('Por favor, seleccione una variable válida para calcular.');
+            }
+        }
+    </script>
+</body>
+</html>

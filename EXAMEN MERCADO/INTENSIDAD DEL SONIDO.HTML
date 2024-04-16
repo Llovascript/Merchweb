@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despejes de Potencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Potencia Media y Máxima</h2>
+
+    <div class="form-group">
+        <label for="mu">Densidad de masa lineal (μ en kg/m):</label>
+        <input type="number" id="mu" step="any" required>
+    </div>
+    <div class="form-group">
+        <label for="omega">Frecuencia angular (ω en rad/s):</label>
+        <input type="number" id="omega" step="any" required>
+    </div>
+    <div class="form-group">
+        <label for="amplitud">Amplitud (A en m):</label>
+        <input type="number" id="amplitud" step="any" required>
+    </div>
+    <div class="form-group">
+        <label for="velocidad">Velocidad de la onda (v en m/s):</label>
+        <input type="number" id="velocidad" step="any" required>
+    </div>
+    <button onclick="calcularPotencias()">Calcular Potencias</button>
+
+    <script>
+        function calcularPotencias() {
+            const mu = parseFloat(document.getElementById('mu').value);
+            const omega = parseFloat(document.getElementById('omega').value);
+            const A = parseFloat(document.getElementById('amplitud').value);
+            const v = parseFloat(document.getElementById('velocidad').value);
+
+            const P_media = 0.5 * mu * v * omega ** 2 * A ** 2;
+            const P_max = mu * v * omega ** 2 * A ** 2;
+
+            alert(`Potencia Media: ${P_media.toFixed(4)} W\nPotencia Máxima: ${P_max.toFixed(4)} W`);
+        }
+    </script>
+</body>
+</html>
