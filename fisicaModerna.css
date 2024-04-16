@@ -5,7 +5,6 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    text-transform: capitalize;
     list-style: none;
     font-family: "Montserrat", sans-serif;
 }
@@ -15,7 +14,7 @@ body{
 }
 
 header{
-    background-image: url(images/hero\ copia.png);
+    background-image: url(images/header2.png);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;

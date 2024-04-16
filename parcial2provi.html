@@ -22,8 +22,8 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="pagina_final.html">Inicio</a></li>
-                    <li><a href="parcial1.html">Acustica</a></li>
-                    <li><a href="fisicaModerna.html">Fisica moderna</a></li>
+                    <li><a href="parcial1.html">Acústica</a></li>
+                    <li><a href="fisicaModerna.html">Física moderna</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,7 +32,7 @@
 
             <div class="content">
                 <h1>
-                    Optica
+                    Óptica
                 </h1><br><br>
 
                 <!--<a href="#" class="btn-1">Mas informacion</a>
@@ -131,6 +131,110 @@
                 </p>
             </div>
         </div>
+
+        <div>
+            <style>
+                input {
+                    width: 100%;
+                    padding: 5px;
+                    margin-bottom: 10px;
+                }
+        
+                button {
+                    background-color: green;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+        
+                button:hover {
+                    background-color: darkgreen;
+                }
+        
+                p {
+                    margin-top: 10px;
+                }
+        
+                span {
+                    font-weight: bold;
+                }
+        
+                /* Ocultar el contenido por defecto */
+                #contentContainer {
+                    display: none;
+                }
+            </style>
+            <button id="toggleButton" onclick="toggleContent()">Onda</button>
+        
+            <!-- Contenido que se mostrará y ocultará -->
+            <div id="contentContainer">
+                <label for="velocityInput2">Velocidad (v): </label>
+                <input type="number" id="velocityInput2" placeholder="Ingrese la velocidad"><br>
+                
+                <label for="frequencyInput2">Frecuencia (f): </label>
+                <input type="number" id="frequencyInput2" placeholder="Ingrese la frecuencia"><br>
+        
+                <label for="wavelengthInput2">Longitud de onda (λ): </label>
+                <input type="number" id="wavelengthInput2" placeholder="Ingrese la longitud de onda"><br>
+        
+                <button id="calculateButton" onclick="calculateValues2()">Calcular</button>
+                
+                <p>Resultado:</p>
+                <p>Velocidad (v): <span id="resultVelocity2"></span> m/s</p>
+                <p>Frecuencia (f): <span id="resultFrequency2"></span> Hz</p>
+                <p>Longitud de onda (λ): <span id="resultWavelength2"></span> metros</p>
+            </div>
+        
+            <script>
+                function toggleContent() {
+                    var contentContainer = document.getElementById('contentContainer');
+                    if (contentContainer.style.display === 'none') {
+                        contentContainer.style.display = 'block';
+                    } else {
+                        contentContainer.style.display = 'none';
+                    }
+                }
+        
+                function calculateValues2() {
+                    var velocity = parseFloat(document.getElementById('velocityInput2').value);
+                    var frequency = parseFloat(document.getElementById('frequencyInput2').value);
+                    var wavelength = parseFloat(document.getElementById('wavelengthInput2').value);
+        
+                    if (isNaN(velocity) && isNaN(frequency) && isNaN(wavelength)) {
+                        alert('Por favor, ingrese al menos dos valores para calcular.');
+                        return;
+                    }
+        
+                    if (isNaN(velocity)) {
+                        document.getElementById('resultVelocity2').innerHTML = '';
+                        if (!isNaN(frequency) && !isNaN(wavelength)) {
+                            velocity = (wavelength * frequency).toFixed(2);
+                            document.getElementById('resultVelocity2').innerHTML = velocity;
+                        }
+                    }
+        
+                    if (isNaN(frequency)) {
+                        document.getElementById('resultFrequency2').innerHTML = '';
+                        if (!isNaN(velocity) && !isNaN(wavelength)) {
+                            frequency = (velocity / wavelength).toFixed(2);
+                            document.getElementById('resultFrequency2').innerHTML = frequency;
+                        }
+                    }
+        
+                    if (isNaN(wavelength)) {
+                        document.getElementById('resultWavelength2').innerHTML = '';
+                        if (!isNaN(velocity) && !isNaN(frequency)) {
+                            wavelength = (velocity / frequency).toFixed(2);
+                            document.getElementById('resultWavelength2').innerHTML = wavelength;
+                        }
+                    }
+                }
+            </script>
+
+        </div>
+
+
         <hr>
 
         <!--Espectro electromagnetico-->
@@ -317,6 +421,95 @@
                 </p>
             </div>
         </div>
+
+
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #reflectionRefractionCalculator {
+                    display: none;
+                }
+                #resultsReflectionRefraction div {
+                    margin-top: 20px;
+                }
+            </style>
+                <button onclick="toggleReflectionRefractionCalculator()">Reflexión y Refracción</button>
+                <div id="reflectionRefractionCalculator">
+                    <h3>Calculadora de Reflexión y Refracción de la Luz</h3>
+            
+                    <label for="angleIncident">Ángulo de Incidencia (θi) en grados:</label>
+                    <input type="number" id="angleIncident">
+                    <label for="angleRefraction">Ángulo de Refracción (θr) en grados:</label>
+                    <input type="number" id="angleRefraction">
+                    <label for="indexRefraction1">Índice de Refracción del Medio 1 (n1):</label>
+                    <input type="number" id="indexRefraction1">
+                    <label for="indexRefraction2">Índice de Refracción del Medio 2 (n2):</label>
+                    <input type="number" id="indexRefraction2">
+                    <button onclick="calculateReflectionRefraction()">Calcular</button>
+                    <div id="resultsReflectionRefraction"></div>
+                </div>
+            
+                <script>
+                    function toggleReflectionRefractionCalculator() {
+                        var calculator = document.getElementById('reflectionRefractionCalculator');
+                        if (calculator.style.display === 'none') {
+                            calculator.style.display = 'block';
+                        } else {
+                            calculator.style.display = 'none';
+                        }
+                    }
+            
+                    function calculateReflectionRefraction() {
+                        var angleIncident = parseFloat(document.getElementById('angleIncident').value);
+                        var angleRefraction = parseFloat(document.getElementById('angleRefraction').value);
+                        var indexRefraction1 = parseFloat(document.getElementById('indexRefraction1').value);
+                        var indexRefraction2 = parseFloat(document.getElementById('indexRefraction2').value);
+            
+                        if (!isNaN(angleIncident) && !isNaN(angleRefraction) && isNaN(indexRefraction1) && !isNaN(indexRefraction2)) {
+                            indexRefraction1 = Math.sin(angleIncident * Math.PI / 180) / Math.sin(angleRefraction * Math.PI / 180) * indexRefraction2;
+                        } else if (!isNaN(angleIncident) && isNaN(angleRefraction) && !isNaN(indexRefraction1) && !isNaN(indexRefraction2)) {
+                            angleRefraction = Math.asin(Math.sin(angleIncident * Math.PI / 180) * indexRefraction1 / indexRefraction2) * 180 / Math.PI;
+                        } else if (isNaN(angleIncident) && !isNaN(angleRefraction) && !isNaN(indexRefraction1) && !isNaN(indexRefraction2)) {
+                            angleIncident = Math.asin(Math.sin(angleRefraction * Math.PI / 180) * indexRefraction2 / indexRefraction1) * 180 / Math.PI;
+                        } else if (!isNaN(angleIncident) && !isNaN(angleRefraction) && !isNaN(indexRefraction1) && isNaN(indexRefraction2)) {
+                            indexRefraction2 = Math.sin(angleIncident * Math.PI / 180) / Math.sin(angleRefraction * Math.PI / 180) * indexRefraction1;
+                        }
+            
+                        var resultDiv = document.getElementById('resultsReflectionRefraction');
+                        resultDiv.innerHTML = '';
+            
+                        if (!isNaN(angleIncident)) {
+                            resultDiv.innerHTML += "<div>Ángulo de Incidencia (θi): " + angleIncident.toFixed(2) + " grados</div>";
+                        }
+                        if (!isNaN(angleRefraction)) {
+                            resultDiv.innerHTML += "<div>Ángulo de Refracción (θr): " + angleRefraction.toFixed(2) + " grados</div>";
+                        }
+                        if (!isNaN(indexRefraction1)) {
+                            resultDiv.innerHTML += "<div>Índice de Refracción del Medio 1 (n1): " + indexRefraction1.toFixed(2) + "</div>";
+                        }
+                        if (!isNaN(indexRefraction2)) {
+                            resultDiv.innerHTML += "<div>Índice de Refracción del Medio 2 (n2): " + indexRefraction2.toFixed(2) + "</div>";
+                        }
+                    }
+                </script>
+        </div>
+
+
+
         <hr>
 
         <!--Ondas Electromagnéticas-->
@@ -484,6 +677,76 @@
                 </p>
             </div>
         </div>
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #criticalAngleCalculator {
+                    display: none;
+                }
+                #resultsCriticalAngle div {
+                    margin-top: 20px;
+                }
+            </style>
+            <button onclick="toggleCriticalAngleCalculator()">Ángulo Crítico</button>
+        
+            <div id="criticalAngleCalculator">
+                <h3>Calculadora de Ángulo Crítico</h3>
+        
+                <label for="indexRefraction1_critical">Índice de Refracción del Medio 1 (n1):</label>
+                <input type="number" id="indexRefraction1_critical">
+                <label for="indexRefraction2_critical">Índice de Refracción del Medio 2 (n2):</label>
+                <input type="number" id="indexRefraction2_critical">
+                <button onclick="calculateCriticalAngle()">Calcular</button>
+                <div id="resultsCriticalAngle"></div>
+            </div>
+        
+            <script>
+                function toggleCriticalAngleCalculator() {
+                    var calculator = document.getElementById('criticalAngleCalculator');
+                    if (calculator.style.display === 'none') {
+                        calculator.style.display = 'block';
+                    } else {
+                        calculator.style.display = 'none';
+                    }
+                }
+        
+                function calculateCriticalAngle() {
+                    var indexRefraction1 = parseFloat(document.getElementById('indexRefraction1_critical').value);
+                    var indexRefraction2 = parseFloat(document.getElementById('indexRefraction2_critical').value);
+                    var resultDiv = document.getElementById('resultsCriticalAngle');
+                
+                    if (!isNaN(indexRefraction1) && !isNaN(indexRefraction2)) {
+                        if (indexRefraction2 > indexRefraction1) {
+                            var criticalAngleRad = Math.asin(indexRefraction1 / indexRefraction2);
+                            var criticalAngleDeg = criticalAngleRad * 180 / Math.PI;
+                            var totalInternalReflection = indexRefraction1 > indexRefraction2 ? "Sí" : "No";
+                
+                            resultDiv.innerHTML = '';
+                            resultDiv.innerHTML += "<div>Ángulo Crítico: " + criticalAngleDeg.toFixed(2) + " grados</div>";
+                            resultDiv.innerHTML += "<div>Reflexión Total Interna: " + totalInternalReflection + "</div>";
+                        } else {
+                            resultDiv.innerHTML = "<div style='color: red;'>Por favor, ingrese índices de refracción válidos (n2 > n1).</div>";
+                        }
+                    } else {
+                        resultDiv.innerHTML = "<div style='color: red;'>Por favor, ingrese valores numéricos válidos para los índices de refracción.</div>";
+                    }
+                }
+            </script>
+        </div>
         <div class="portfolio">
             <div class="portfolio-2">
                 <h3>Distancia Focal</h3>
@@ -495,6 +758,77 @@
                 </p>
             </div>
         </div>
+
+
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #focalDistanceCalculator {
+                    display: none;
+                }
+                #resultsFocalDistance div {
+                    margin-top: 20px;
+                }
+            </style>
+                <button onclick="toggleFocalDistanceCalculator()">Distancia Focal</button>
+            
+                <div id="focalDistanceCalculator">
+                    <h3>Calculadora de Distancia Focal</h3>
+            
+                    <label for="objectDistance">Distancia del Objeto (do):</label>
+                    <input type="number" id="objectDistance_focal">
+                    <label for="imageDistance">Distancia de la Imagen (di):</label>
+                    <input type="number" id="imageDistance_focal">
+                    <button onclick="calculateFocalDistance()">Calcular</button>
+                    <div id="resultsFocalDistance"></div>
+                </div>
+            
+                <script>
+                    function toggleFocalDistanceCalculator() {
+                        var calculator = document.getElementById('focalDistanceCalculator');
+                        if (calculator.style.display === 'none') {
+                            calculator.style.display = 'block';
+                        } else {
+                            calculator.style.display = 'none';
+                        }
+                    }
+            
+                    function calculateFocalDistance() {
+                        var objectDistance = parseFloat(document.getElementById('objectDistance_focal').value);
+                        var imageDistance = parseFloat(document.getElementById('imageDistance_focal').value);
+            
+                        if (!isNaN(objectDistance) && !isNaN(imageDistance) && imageDistance !== 0) {
+                            var focalDistance = (objectDistance * imageDistance) / (objectDistance + imageDistance);
+            
+                            var resultDiv = document.getElementById('resultsFocalDistance');
+                            resultDiv.innerHTML = '';
+                            resultDiv.innerHTML += "<div>Distancia Focal (f): " + focalDistance.toFixed(2) + "</div>";
+                        } else {
+                            alert('Por favor, ingrese valores válidos para la distancia del objeto y la distancia de la imagen (di no puede ser 0).');
+                        }
+                    }
+                </script>
+
+            
+            </div>
+
+
+
+
         <hr>
 
         <!--Ángulo de Brewster -->
@@ -803,7 +1137,7 @@
         </div><br><br>
         <div class="portfolio">
             <div class="portfolio-3">
-                <h3>Tecnicas Híbridas</h3>
+                <h3>Técnicas Híbridas</h3>
                 <p>
                     Combinan técnicas del dominio espacial y del dominio de frecuencia. Las técnicas híbridas más
                     comunes incluyen:
@@ -813,10 +1147,10 @@
             <div class="card2">
                 <div class="face2 front2">
                     <img src="images/DominioA.jfif" alt="" style="border-radius: 10px; ">
-                    <h3>Tecnicas Híbridas</h3>
+                    <h3>Técnicas Híbridas</h3>
                 </div>
                 <div class="face2 back2">
-                    <h3>Tecnicas Híbridas</h3>
+                    <h3>Técnicas Híbridas</h3>
                     <p>
                         a. Desenfoque Inverso: Aplica un filtro de paso alto en el dominio de frecuencia, seguido de un
                         ajuste de contraste en el dominio espacial, utilizado en astrofísica (Gonzalez & Woods, 2007).
@@ -913,11 +1247,99 @@
                 </p>
             </div>
         </div><br><br>
+
+
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #gaussCalculator {
+                    display: none;
+                }
+                #results div {
+                    margin-top: 20px;
+                }
+            </style>
+                <button onclick="toggleGaussCalculator()">Ley de Gauss para Campo Eléctrico</button>
+            
+                <div id="gaussCalculator">
+                    <h3>Calculadora de Ley de Gauss para Campo Eléctrico</h3>
+            
+                    <label for="electricField">Campo Eléctrico (E) en N/C:</label>
+                    <input type="number" id="electricField">
+                    <label for="chargeDensity">Densidad de Carga (P) en C/m³:</label>
+                    <input type="number" id="chargeDensity">
+                    <label for="permitivity">Permitividad Eléctrica (ε) en F/m:</label>
+                    <input type="number" id="permitivity">
+                    <label for="nabla">Nabla (∇) en N/C:</label>
+                    <input type="number" id="nabla">
+                    <button onclick="calculateGauss()">Calcular</button>
+                    <div id="results"></div>
+                </div>
+            
+                <script>
+                    function toggleGaussCalculator() {
+                        var calculator = document.getElementById('gaussCalculator');
+                        if (calculator.style.display === 'none') {
+                            calculator.style.display = 'block';
+                        } else {
+                            calculator.style.display = 'none';
+                        }
+                    }
+            
+                    function calculateGauss() {
+                        var electricField = parseFloat(document.getElementById('electricField').value);
+                        var chargeDensity = parseFloat(document.getElementById('chargeDensity').value);
+                        var permitivity = parseFloat(document.getElementById('permitivity').value);
+                        var nabla = parseFloat(document.getElementById('nabla').value);
+            
+                        if (isNaN(electricField) && !isNaN(chargeDensity) && !isNaN(permitivity) && !isNaN(nabla)) {
+                            electricField = nabla / (chargeDensity * permitivity);
+                        } else if (!isNaN(electricField) && isNaN(chargeDensity) && !isNaN(permitivity) && !isNaN(nabla)) {
+                            chargeDensity = nabla / (electricField * permitivity);
+                        } else if (!isNaN(electricField) && !isNaN(chargeDensity) && isNaN(permitivity) && !isNaN(nabla)) {
+                            permitivity = nabla / (electricField * chargeDensity);
+                        } else if (!isNaN(electricField) && !isNaN(chargeDensity) && !isNaN(permitivity) && isNaN(nabla)) {
+                            nabla = electricField * chargeDensity * permitivity;
+                        }
+            
+                        var resultDiv = document.getElementById('results');
+                        resultDiv.innerHTML = '';
+            
+                        if (!isNaN(electricField)) {
+                            resultDiv.innerHTML += "<div>Campo Eléctrico (E): " + electricField.toFixed(2) + " N/C</div>";
+                        }
+                        if (!isNaN(chargeDensity)) {
+                            resultDiv.innerHTML += "<div>Densidad de Carga (P): " + chargeDensity.toFixed(2) + " C/m³</div>";
+                        }
+                        if (!isNaN(permitivity)) {
+                            resultDiv.innerHTML += "<div>Permitividad Eléctrica (ε): " + permitivity.toFixed(2) + " F/m</div>";
+                        }
+                        if (!isNaN(nabla)) {
+                            resultDiv.innerHTML += "<div>Nabla (∇): " + nabla.toFixed(2) + " N/C</div>";
+                        }
+                    }
+                </script>
+        </div>
+
         <hr>
         <!--gauss campo magneticos-->
         <div class="portfolio">
             <div class="portfolio-2">
-                <h3>La Ley de Gauss para el campos magneticos</h3>
+                <h3>La Ley de Gauss para campos magnéticos</h3>
                 <p>
                     establece que el flujo eléctrico total a través de una superficie cerrada es proporcional a la carga
                     eléctrica total encerrada por la superficie. Por ejemplo, si la superficie cerrada contiene un
@@ -936,6 +1358,79 @@
                 </p>
             </div>
         </div><br><br>
+
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #gaussMagneticCalculator {
+                    display: none;
+                }
+                #resultsMagnetic div {
+                    margin-top: 20px;
+                }
+            </style>
+                <button onclick="toggleGaussMagneticCalculator()">Ley de Gauss para Campos Magnéticos</button>
+            
+                <div id="gaussMagneticCalculator">
+                    <h3>Calculadora de Ley de Gauss para Campos Magnéticos</h3>
+            
+                    <label for="nablaMagnetic">Nabla (∇) en T/m:</label>
+                    <input type="number" id="nablaMagnetic">
+                    <label for="magneticField">Campo Magnético (B) en T:</label>
+                    <input type="number" id="magneticField">
+                    <button onclick="calculateGaussMagnetic()">Calcular</button>
+                    <div id="resultsMagnetic"></div>
+                </div>
+            
+                <script>
+                    function toggleGaussMagneticCalculator() {
+                        var calculator = document.getElementById('gaussMagneticCalculator');
+                        if (calculator.style.display === 'none') {
+                            calculator.style.display = 'block';
+                        } else {
+                            calculator.style.display = 'none';
+                        }
+                    }
+            
+                    function calculateGaussMagnetic() {
+                        var nablaMagnetic = parseFloat(document.getElementById('nablaMagnetic').value);
+                        var magneticField = parseFloat(document.getElementById('magneticField').value);
+            
+                        if (isNaN(nablaMagnetic) && !isNaN(magneticField)) {
+                            nablaMagnetic = magneticField;
+                        } else if (!isNaN(nablaMagnetic) && isNaN(magneticField)) {
+                            magneticField = nablaMagnetic;
+                        }
+            
+                        var resultDiv = document.getElementById('resultsMagnetic');
+                        resultDiv.innerHTML = '';
+            
+                        if (!isNaN(nablaMagnetic)) {
+                            resultDiv.innerHTML += "<div>Nabla (∇): " + nablaMagnetic.toFixed(2) + " T/m</div>";
+                        }
+                        if (!isNaN(magneticField)) {
+                            resultDiv.innerHTML += "<div>Campo Magnético (B): " + magneticField.toFixed(2) + " T</div>";
+                        }
+                    }
+                </script>
+            
+        </div>
+
+
         <hr>
         <!--faraday-->
         <div class="portfolio">
@@ -962,6 +1457,88 @@
                 <!--<a href="#" class="btn-2">informacion</a>-->
             </div>
         </div><br><br>
+
+
+        <div>
+            <style>
+                input {
+                    margin-bottom: 10px;
+                    padding: 5px;
+                }
+                button {
+                    padding: 8px 16px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+                #faradayCalculator {
+                    display: none;
+                }
+                #resultsFaraday div {
+                    margin-top: 20px;
+                }
+            </style>
+                <button onclick="toggleFaradayCalculator()">Ley de Faraday</button>
+            
+                <div id="faradayCalculator">
+                    <h3>Calculadora de Ley de Faraday</h3>
+            
+                    <label for="partialDerivative">Derivada Parcial (∂) en V/s:</label>
+                    <input type="number" id="partialDerivative">
+                    <label for="magneticFieldFaraday">Campo Magnético (B) en T:</label>
+                    <input type="number" id="magneticFieldFaraday">
+                    <label for="timeFaraday">Tiempo (T) en s:</label>
+                    <input type="number" id="timeFaraday">
+                    <button onclick="calculateFaraday()">Calcular</button>
+                    <div id="resultsFaraday"></div>
+                </div>
+            
+                <script>
+                    function toggleFaradayCalculator() {
+                        var calculator = document.getElementById('faradayCalculator');
+                        if (calculator.style.display === 'none') {
+                            calculator.style.display = 'block';
+                        } else {
+                            calculator.style.display = 'none';
+                        }
+                    }
+            
+                    function calculateFaraday() {
+                        var partialDerivative = parseFloat(document.getElementById('partialDerivative').value);
+                        var magneticFieldFaraday = parseFloat(document.getElementById('magneticFieldFaraday').value);
+                        var timeFaraday = parseFloat(document.getElementById('timeFaraday').value);
+            
+                        if (isNaN(partialDerivative) && !isNaN(magneticFieldFaraday) && !isNaN(timeFaraday)) {
+                            partialDerivative = magneticFieldFaraday * timeFaraday;
+                        } else if (!isNaN(partialDerivative) && isNaN(magneticFieldFaraday) && !isNaN(timeFaraday)) {
+                            magneticFieldFaraday = partialDerivative / timeFaraday;
+                        } else if (!isNaN(partialDerivative) && !isNaN(magneticFieldFaraday) && isNaN(timeFaraday)) {
+                            timeFaraday = partialDerivative / magneticFieldFaraday;
+                        }
+            
+                        var resultDiv = document.getElementById('resultsFaraday');
+                        resultDiv.innerHTML = '';
+            
+                        if (!isNaN(partialDerivative)) {
+                            resultDiv.innerHTML += "<div>Derivada Parcial (∂): " + partialDerivative.toFixed(2) + " V/s</div>";
+                        }
+                        if (!isNaN(magneticFieldFaraday)) {
+                            resultDiv.innerHTML += "<div>Campo Magnético (B): " + magneticFieldFaraday.toFixed(2) + " T</div>";
+                        }
+                        if (!isNaN(timeFaraday)) {
+                            resultDiv.innerHTML += "<div>Tiempo (T): " + timeFaraday.toFixed(2) + " s</div>";
+                        }
+                    }
+                </script>
+        </div>
+
+
+
         <hr>
         <!--ampere maxwell-->
         <div class="portfolio">
@@ -994,6 +1571,118 @@
                 <!--<a href="#" class="btn-2">informacion</a>-->
             </div>
         </div>
+
+
+        <div>
+    <style>
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #ampereMaxwellCalculator {
+            display: none;
+        }
+        #resultsAmpereMaxwell div {
+            margin-top: 20px;
+        }
+    </style>
+        <button onclick="toggleAmpereMaxwellCalculator()">Ley de Ampère-Maxwell</button>
+    
+        <div id="ampereMaxwellCalculator">
+            <h3>Calculadora de Ley de Ampère-Maxwell</h3>
+    
+            <label for="magneticFieldAmpere">Campo Magnético (B) en T:</label>
+            <input type="number" id="magneticFieldAmpere">
+            <label for="magneticPermeability">Permeabilidad Magnética (μ) en H/m:</label>
+            <input type="number" id="magneticPermeability">
+            <label for="currentDensity">Densidad de Corriente (J) en A/m²:</label>
+            <input type="number" id="currentDensity">
+            <label for="electricField">Campo Eléctrico (E) en V/m:</label>
+            <input type="number" id="electricField">
+            <label for="timeAmpere">Tiempo (T) en s:</label>
+            <input type="number" id="timeAmpere">
+            <label for="electricPermittivity">Permitividad al Vacío (ε) en F/m:</label>
+            <input type="number" id="electricPermittivity">
+            <label for="partialDerivativeAmpere">Derivada Parcial (∂) en V/s:</label>
+            <input type="number" id="partialDerivativeAmpere">
+            <button onclick="calculateAmpereMaxwell()">Calcular</button>
+            <div id="resultsAmpereMaxwell"></div>
+        </div>
+    
+        <script>
+            function toggleAmpereMaxwellCalculator() {
+                var calculator = document.getElementById('ampereMaxwellCalculator');
+                if (calculator.style.display === 'none') {
+                    calculator.style.display = 'block';
+                } else {
+                    calculator.style.display = 'none';
+                }
+            }
+    
+            function calculateAmpereMaxwell() {
+                var magneticFieldAmpere = parseFloat(document.getElementById('magneticFieldAmpere').value);
+                var magneticPermeability = parseFloat(document.getElementById('magneticPermeability').value);
+                var currentDensity = parseFloat(document.getElementById('currentDensity').value);
+                var electricField = parseFloat(document.getElementById('electricField').value);
+                var timeAmpere = parseFloat(document.getElementById('timeAmpere').value);
+                var electricPermittivity = parseFloat(document.getElementById('electricPermittivity').value);
+                var partialDerivativeAmpere = parseFloat(document.getElementById('partialDerivativeAmpere').value);
+    
+                if (!isNaN(magneticFieldAmpere) && !isNaN(magneticPermeability) && !isNaN(currentDensity) && isNaN(electricField) && !isNaN(timeAmpere) && !isNaN(electricPermittivity) && !isNaN(partialDerivativeAmpere)) {
+                    electricField = (magneticFieldAmpere * magneticPermeability - currentDensity) / (electricPermittivity * partialDerivativeAmpere);
+                } else if (!isNaN(magneticFieldAmpere) && isNaN(magneticPermeability) && !isNaN(currentDensity) && !isNaN(electricField) && !isNaN(timeAmpere) && !isNaN(electricPermittivity) && !isNaN(partialDerivativeAmpere)) {
+                    magneticPermeability = (electricField * electricPermittivity * partialDerivativeAmpere + currentDensity) / magneticFieldAmpere;
+                } else if (!isNaN(magneticFieldAmpere) && !isNaN(magneticPermeability) && isNaN(currentDensity) && !isNaN(electricField) && !isNaN(timeAmpere) && !isNaN(electricPermittivity) && !isNaN(partialDerivativeAmpere)) {
+                    currentDensity = magneticFieldAmpere * magneticPermeability - electricField * electricPermittivity * partialDerivativeAmpere;
+                } else if (!isNaN(magneticFieldAmpere) && !isNaN(magneticPermeability) && !isNaN(currentDensity) && !isNaN(electricField) && isNaN(timeAmpere) && !isNaN(electricPermittivity) && !isNaN(partialDerivativeAmpere)) {
+                    timeAmpere = (magneticFieldAmpere * magneticPermeability - currentDensity) / (electricField * electricPermittivity * partialDerivativeAmpere);
+                } else if (!isNaN(magneticFieldAmpere) && !isNaN(magneticPermeability) && !isNaN(currentDensity) && !isNaN(electricField) && !isNaN(timeAmpere) && isNaN(electricPermittivity) && !isNaN(partialDerivativeAmpere)) {
+                    electricPermittivity = (magneticFieldAmpere * magneticPermeability - currentDensity) / (electricField * partialDerivativeAmpere);
+                } else if (!isNaN(magneticFieldAmpere) && !isNaN(magneticPermeability) && !isNaN(currentDensity) && !isNaN(electricField) && !isNaN(timeAmpere) && !isNaN(electricPermittivity) && isNaN(partialDerivativeAmpere)) {
+                    partialDerivativeAmpere = (magneticFieldAmpere * magneticPermeability - currentDensity) / (electricField * electricPermittivity);
+                }
+    
+                var resultDiv = document.getElementById('resultsAmpereMaxwell');
+                resultDiv.innerHTML = '';
+    
+                if (!isNaN(magneticFieldAmpere)) {
+                    resultDiv.innerHTML += "<div>Campo Magnético (B): " + magneticFieldAmpere.toFixed(2) + " T</div>";
+                }
+                if (!isNaN(magneticPermeability)) {
+                    resultDiv.innerHTML += "<div>Permeabilidad Magnética (μ): " + magneticPermeability.toFixed(2) + " H/m</div>";
+                }
+                if (!isNaN(currentDensity)) {
+                    resultDiv.innerHTML += "<div>Densidad de Corriente (J): " + currentDensity.toFixed(2) + " A/m²</div>";
+                }
+                if (!isNaN(electricField)) {
+                    resultDiv.innerHTML += "<div>Campo Eléctrico (E): " + electricField.toFixed(2) + " V/m</div>";
+                }
+                if (!isNaN(timeAmpere)) {
+                    resultDiv.innerHTML += "<div>Tiempo (T): " + timeAmpere.toFixed(2) + " s</div>";
+                }
+                if (!isNaN(electricPermittivity)) {
+                    resultDiv.innerHTML += "<div>Permitividad al Vacío (ε): " + electricPermittivity.toFixed(2) + " F/m</div>";
+                }
+                if (!isNaN(partialDerivativeAmpere)) {
+                    resultDiv.innerHTML += "<div>Derivada Parcial (∂): " + partialDerivativeAmpere.toFixed(2) + " V/s</div>";
+                }
+            }
+        </script>
+</div>
+
+
+
         <hr>
 
     </section>
