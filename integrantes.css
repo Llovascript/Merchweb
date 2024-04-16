@@ -1,8 +1,57 @@
+
 body{
-    background-image: url(imageneseq/UPQ.jpg) center no-repeat;
-    background-size: cover;
+    background-color: #f5f5f5;
 }
 
+header{
+    background-image: url(images/header2.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+
+}
+
+.menu{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.menu .logo{
+    font-weight: 700;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.menu .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #ffffff;
+    display: block;
+    transition: .5s;
+}
+
+.menu .navbar ul li a:hover{
+    color: #b00606;
+}
 .slide{
     position: relative;
     width: 750px;
@@ -22,7 +71,7 @@ body{
     line-height: 40px;
     text-align: center;
     cursor: pointer;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     color: black;
     transition: all 0.7s;
     font-size: 20px;
@@ -68,7 +117,7 @@ body{
     height: 0;
     border: 3px solid white;
     cursor: pointer;
-    background-color: #333;
+    background-color: #010101;
 }
 
 .slide > ul >li>img{
@@ -76,3 +125,28 @@ body{
     height: 100%;
     background-position: center;
 }
+
+.image-section img {
+    width: 50%;
+    height: auto;
+}
+
+
+.slide > ul > li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.bar {
+    width: 100%;
+    height: 10px;
+    background-color: black;
+}
+
+.Image {
+    width: auto;
+    height: auto;
+}
+
+
+
