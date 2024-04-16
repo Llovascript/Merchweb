@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de unidades de medida</title>
+    <!--LINKS-->
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/convertidor.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+</head>
+<body>
+    <header>
+        <nav class="menu-bar">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">Alex22-SV</label>
+        </nav>
+    </header>
+    <section class="intro">
+        <h1 class="title">Convertidor de unidades de medida</h1>
+        <p class="desc">Con esta página web te ayudaremos a convertir las unidades de medida (al menos las más principales). Si hay alguna unidad de medida que no está disponible en nuestra página puedes pedirnos que agreguemos esa unidad de medida <a href="https://github.com/Alex22-SV/Convertidor-de-unidades-de-medida/issues" target="_blank">aquí</a>, para ello necesitarás una cuenta creada en GitHub.</p>
+    </section>
+    <div class="convertidor">
+        <h1 class="convertidor-title">Convertir unidades de longitud</h1>
+        <div class="convertidor-longitud">
+            <form class="form" id="form-longitud">
+                <label for="options-longitud-1">Convertir de:</label> 
+                <input type="number" id="option-number-longitud">
+                <select id="options-longitud-1" class="options">
+                    <option value="km">Kilómetro(s)</option>
+                    <option value="hm">Hectómetro(s)</option>
+                    <option value="dam">Decámetro(s)</option>
+                    <option value="m">Metro(s)</option>
+                    <option value="dm">Decímetro(s)</option>
+                    <option value="cm">Centímetro(s)</option>
+                    <option value="mm">Milímetro(s)</option>
+                </select>
+                <label for="options-longitud-2">a:</label>
+                <select id="options-longitud-2" class="options">
+                    <option value="km">Kilómetro(s)</option>
+                    <option value="hm">Hectómetro(s)</option>
+                    <option value="dam">Decámetro(s)</option>
+                    <option value="m">Metro(s)</option>
+                    <option value="dm">Decímetro(s)</option>
+                    <option value="cm">Centímetro(s)</option>
+                    <option value="mm">Milímetro(s)</option>
+                </select>
+                <button type="submit" class="btn">Convertir</button>
+            </form>
+            <h4 class="displayResult" id="displayResult-longitud">Resultado</h4>
+        </div>
+        <h1 class="convertidor-title">Convertir unidades de masa</h1>
+        <div class="convertidor-masa">
+            <form class="form" id="form-masa">
+                <label for="options-masa-1">Convertir de:</label> 
+                <input type="number" id="option-number-masa">
+                <select id="options-masa-1" class="options">
+                    <option value="t">Tonelada(s)</option>
+                    <option value="kg">Kilogramo(s)</option>
+                    <option value="g">Gramo(s)</option>
+                    <option value="mg">Miligramo(s)</option>
+                    <option value="µg">Microgramo(s)</option>
+                </select>
+                <label for="options-masa-2">a:</label>
+                <select id="options-masa-2" class="options">
+                    <option value="t">Tonelada(s)</option>
+                    <option value="kg">Kilogramo(s)</option>
+                    <option value="g">Gramo(s)</option>
+                    <option value="mg">Miligramo(s)</option>
+                    <option value="µg">Microgramo(s)</option>
+                </select>
+                <button type="submit" class="btn">Convertir</button>
+            </form>
+            <h4 class="displayResult" id="displayResult-masa">Resultado</h4>
+        </div>
+        <h1 class="convertidor-title">Convertir unidades de tiempo</h1>
+        <div class="convertidor-tiempo">
+            <form class="form" id="form-tiempo">
+                <label for="options-tiempo-1">Convertir de:</label> 
+                <input type="number" id="option-number-tiempo">
+                <select id="options-tiempo-1" class="options">
+                    <option value="milenio">Milenio(s)</option>
+                    <option value="siglo">Siglo(s)</option>
+                    <option value="decada">Década(s)</option>
+                    <option value="año">Año(s)</option>
+                    <option value="mes">Mes(es)</option>
+                    <option value="semana">Semana(s)</option>
+                    <option value="d">Día(s)</option>
+                    <option value="h">Hora(s)</option>
+                    <option value="min">Minuto(s)</option>
+                    <option value="s">Segundo(s)</option>
+                </select>
+                <label for="options-tiempo-2">a:</label>
+                <select id="options-tiempo-2" class="options">
+                    <option value="milenio">Milenio(s)</option>
+                    <option value="siglo">Siglo(s)</option>
+                    <option value="decada">Década(s)</option>
+                    <option value="año">Año(s)</option>
+                    <option value="mes">Mes(es)</option>
+                    <option value="semana">Semana(s)</option>
+                    <option value="d">Día(s)</option>
+                    <option value="h">Hora(s)</option>
+                    <option value="min">Minuto(s)</option>
+                    <option value="s">Segundo(s)</option>
+                </select>
+                <button type="submit" class="btn">Convertir</button>
+            </form>
+            <h4 class="displayResult" id="displayResult-tiempo">Resultado</h4>
+        </div>
+        <h1 class="convertidor-title">Convertir unidades de temperatura</h1>
+        <div class="convertidor-temperatura">
+            <form class="form" id="form-temperatura">
+                <label for="options-temperatura-1">Convertir de:</label> 
+                <input type="number" id="option-number-temperatura">
+                <select id="options-temperatura-1" class="options">
+                    <option value="K">Kelvin (K)</option>
+                    <option value="°C">Grados Celsius (°C)</option>
+                    <option value="°F">Grados Fahrenheit (°F)</option>
+                </select>
+                <label for="options-temperatura-2">a:</label>
+                <select id="options-temperatura-2" class="options">
+                    <option value="K">Kelvin (K)</option>
+                    <option value="°C">Grados Celsius (°C)</option>
+                    <option value="°F">Grados Fahrenheit (°F)</option>
+                </select>
+                <button type="submit" class="btn">Convertir</button>
+            </form>
+            <h4 class="displayResult" id="displayResult-temperatura">Resultado</h4>
+        </div>
+        <footer class="footer">
+            
+        </footer>
+    </div>
+    <!--SCRIPTS-->
+    <script src="/scripts/convertidor.js"></script>
+    <script src="/scripts/footer.js"></script>
+</body>
+</html>
